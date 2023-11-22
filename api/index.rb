@@ -87,18 +87,18 @@ end
 
 Handler = Proc.new do |req, res|
   hostname = "docs.ruby-lang.org"#"docs.ruby-lang.org"
-  http = Net::HTTP.new(hostname)
-  http.start
 
   puts req.header['host']
   res.status = 200
-  newURI = URI.parse("#{req.request_uri}".sub("#{req.header['host'][0]}", hostname))
+  uristring="#{req.request_uri}".sub("#{req.header['host'][0]}", hostname).sub("http:","https:")
+  p uristring
+  newURI = URI.parse(uristring)
   
-  request = newRequest(req.request_method,newURI,{},false)
-  request=addHeaders(request,req.header)
-  response=http.request(request)#http.request(request)
+  #request = newRequest(req.request_method,newURI,{},false)
+  #p request.uri
+  #request=addHeaders(request,req.header)
+  response=Net::HTTP.get_response(newURI)#http.request(request)
   res['Content-Type'] = response.header['content-type']
   res.body=response.body
   res.status=response.code
-  http.finish
 end
