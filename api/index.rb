@@ -100,5 +100,5 @@ Handler = Proc.new do |req, res|
   response=Net::HTTP.get_response(newURI)#http.request(request)
   res['Content-Type'] = response.header['content-type']
   res.body=response.body
-  res.status=response.code
+  #res.status=response.code
 end
