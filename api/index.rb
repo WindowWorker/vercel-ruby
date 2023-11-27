@@ -69,7 +69,7 @@ Handler = Proc.new do |req, res|
   end
   body=response.body
   if(response.header['content-encoding'])&&(response.header['content-encoding']=='gzip')&&(response.header['content-type']=='text/html')
-    body = Zlib.gzip(Zlib.gunzip(body).gsub '\\x','\\u00')
+    body = Zlib.gzip(Zlib.gunzip(body).gsub '\x','\u00')
     res['Content-Length'] = body.length
     puts body
   end
