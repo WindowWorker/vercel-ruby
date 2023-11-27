@@ -96,6 +96,7 @@ Handler = Proc.new do |req, res|
   #request = newRequest(req.request_method,newURI,{},false)
   #p request.uri
   #request=addHeaders(request,req.header)
+  Net::HTTP.local_port=6969
   response=Net::HTTP.get_response(newURI)#http.request(request)
   #res.code=response.code
   res.status=response.code
