@@ -2,8 +2,10 @@ require 'net/http'
 require 'uri'
 
 
-
-
+repl = false
+if ENV['PATH'].include?('runner')
+  repl = true;
+end
 
 
 
@@ -58,7 +60,7 @@ Handler = Proc.new do |req, res|
   #res.code=response.code
   res.status=response.code
   res['Content-Type'] = response.header['content-type']
-  if(response.header['content-encoding'])
+  if(response.header['content-encoding'])&&repl
     res['Content-Encoding'] = response.header['content-encoding']
   end
   if(response.header['content-length'])
