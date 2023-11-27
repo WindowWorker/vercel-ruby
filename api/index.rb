@@ -67,7 +67,8 @@ Handler = Proc.new do |req, res|
     res['Content-Length'] = response.header['content-length']
   end
   body=response.body
-  if body.include?('\x')
+  puts body
+  if !repl
     body=body.force_encoding("ISO-8859-1").encode("UTF-8")
   end
   res.body=body
