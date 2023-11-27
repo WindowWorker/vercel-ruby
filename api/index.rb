@@ -1,5 +1,6 @@
 require 'net/http'
 require 'uri'
+require "zlib"
 
 
 repl = false
@@ -67,10 +68,12 @@ Handler = Proc.new do |req, res|
     res['Content-Length'] = response.header['content-length']
   end
   body=response.body
-  puts body
-  if !repl
-    body=body.force_encoding("ISO-8859-1").encode("UTF-8")
+  if(response.header['content-encoding'])&&(response.header['content-encoding']=='gzip')&&(response.header['content-type']=='text/html')
+    body = Zlib.gzip(Zlib.gunzip(body).force_encoding("ISO-8859-1").encode("UTF-8"))
+    res['Content-Length'] = body.length
+    puts body
   end
+  #puts body
   res.body=body
   #Net::HTTP.finish
 end
