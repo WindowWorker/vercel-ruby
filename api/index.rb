@@ -44,6 +44,8 @@ def printHeaders(headers)
 end
 
 Handler = Proc.new do |req, res|
+  Encoding.default_external=Encoding::UTF_8
+  Encoding.default_internal=Encoding::UTF_8
   hostname = "docs.ruby-lang.org"#"docs.ruby-lang.org"
 
   puts req.header['host']
@@ -69,7 +71,7 @@ Handler = Proc.new do |req, res|
   end
   body=response.body
   if(response.header['content-encoding'])&&(response.header['content-encoding']=='gzip')&&(response.header['content-type']=='text/html')
-    body = Zlib.gunzip(body).force_encoding('UTF-8')
+    body = Zlib.gunzip(body)
     puts body
     body = Zlib.gzip(body)
     
