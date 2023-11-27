@@ -96,11 +96,19 @@ Handler = Proc.new do |req, res|
   #request = newRequest(req.request_method,newURI,{},false)
   #p request.uri
   #request=addHeaders(request,req.header)
-  Net::HTTP.local_port=6969
-  response=Net::HTTP.get_response(newURI)#http.request(request)
+  #Net::HTTP.start(hostname, 6969)
+  
+  response=Net::HTTP.get_response(newURI,flattenHeaders(req.header),443)
+  #http.request(request)
   #res.code=response.code
   res.status=response.code
   res['Content-Type'] = response.header['content-type']
+  if(response.header['content-encoding'])
+    res['Content-Encoding'] = response.header['content-encoding']
+  end
+  if(response.header['content-length'])
+    res['Content-Length'] = response.header['content-length']
+  end
   res.body=response.body
-
+  #Net::HTTP.finish
 end
