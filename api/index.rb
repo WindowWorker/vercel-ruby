@@ -71,7 +71,7 @@ Handler = Proc.new do |req, res|
   end
   body=response.body
   if(response.header['content-encoding'])&&(response.header['content-encoding']=='gzip')&&(response.header['content-type']=='text/html')
-    body = Zlib.gunzip(body)
+    body = Zlib.gunzip(body).force_encoding('utf-8').encode('utf-16', :invalid=>:replace).encode('utf-8')
     puts body
     body = Zlib.gzip(body)
     
