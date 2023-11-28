@@ -62,7 +62,7 @@ Handler = Proc.new do |req, res|
   #http.request(request)
   #res.code=response.code
   res.status=response.code
-  res['Content-Type'] = response.header['content-type']
+  res['Content-Type'] = response.header['content-type'].gsub("charset=utf-8","")
   if(response.header['content-encoding'])&&repl
     res['Content-Encoding'] = response.header['content-encoding']
   end
@@ -76,7 +76,7 @@ Handler = Proc.new do |req, res|
     body = Zlib.gzip(body)
     res['Content-Length'] = body.length
   else 
-    body=body.unpack('C*').pack('U*');
+   # body=body.unpack('C*').pack('U*');
   end
   puts "main"
   #puts body
