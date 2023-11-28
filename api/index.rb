@@ -51,7 +51,12 @@ Handler = Proc.new do |req, res|
   
     puts req.header['host']
     uristring="#{req.request_uri}".sub("#{req.header['host'][0]}", hostname).sub("http:","https:")
-    p uristring
+    
+    puts uristring
+    if (uristring.split('.').length == 3) && (uristring[uristring.length-1]!="/")
+      uristring=uristring+'/'
+    end
+    puts 
     newURI = URI.parse(uristring)
     
     #request = newRequest(req.request_method,newURI,{},false)
@@ -73,7 +78,7 @@ Handler = Proc.new do |req, res|
     body=response.body
     if(response.header['content-encoding'])&&(response.header['content-encoding']=='gzip')&&(response.header['content-type'].include?('text'))
       body = Zlib.gunzip(body)
-      body=body.unpack('C*').pack('U*');
+      #body=body.unpack('C*').pack('U*');
       #body = Zlib.gzip(body)
       
     else 
