@@ -44,43 +44,48 @@ def printHeaders(headers)
 end
 
 Handler = Proc.new do |req, res|
-  Encoding.default_external=Encoding::UTF_8
-  Encoding.default_internal=Encoding::UTF_8
-  hostname = "docs.ruby-lang.org"#"docs.ruby-lang.org"
-
-  puts req.header['host']
-  uristring="#{req.request_uri}".sub("#{req.header['host'][0]}", hostname).sub("http:","https:")
-  p uristring
-  newURI = URI.parse(uristring)
+  begin
+    Encoding.default_external=Encoding::UTF_8
+    Encoding.default_internal=Encoding::UTF_8
+    hostname = "docs.ruby-lang.org"#"docs.ruby-lang.org"
   
-  #request = newRequest(req.request_method,newURI,{},false)
-  #p request.uri
-  #request=addHeaders(request,req.header)
-  #Net::HTTP.start(hostname, 6969)
-  
-  response=Net::HTTP.get_response(newURI,flattenHeaders(req.header),443)
-  #http.request(request)
-  #res.code=response.code
-  res.status=response.code
-  res['Content-Type'] = response.header['content-type'].gsub("charset=utf-8","")
-  if(response.header['content-encoding'])&&repl
-    res['Content-Encoding'] = response.header['content-encoding']
-  end
-  if(response.header['content-length'])
-    res['Content-Length'] = response.header['content-length']
-  end
-  body=response.body
-  if(response.header['content-encoding'])&&(response.header['content-encoding']=='gzip')&&(response.header['content-type'].include?('text'))
-    body = Zlib.gunzip(body)
-    body=body.unpack('C*').pack('U*');
-    body = Zlib.gzip(body)
+    puts req.header['host']
+    uristring="#{req.request_uri}".sub("#{req.header['host'][0]}", hostname).sub("http:","https:")
+    p uristring
+    newURI = URI.parse(uristring)
     
-  else 
-   # body=body.unpack('C*').pack('U*');
-  end
-  puts "main"
-  #puts body
-  res['Content-Length'] = body.length
-  res.body=body
-  #Net::HTTP.finish
+    #request = newRequest(req.request_method,newURI,{},false)
+    #p request.uri
+    #request=addHeaders(request,req.header)
+    #Net::HTTP.start(hostname, 6969)
+    
+    response=Net::HTTP.get_response(newURI,flattenHeaders(req.header),443)
+    #http.request(request)
+    #res.code=response.code
+    res.status=response.code
+    res['Content-Type'] = response.header['content-type'].gsub("charset=utf-8","")
+    if(response.header['content-encoding'])&&repl
+      res['Content-Encoding'] = response.header['content-encoding']
+    end
+    if(response.header['content-length'])
+      res['Content-Length'] = response.header['content-length']
+    end
+    body=response.body
+    if(response.header['content-encoding'])&&(response.header['content-encoding']=='gzip')&&(response.header['content-type'].include?('text'))
+      body = Zlib.gunzip(body)
+      body=body.unpack('C*').pack('U*');
+      body = Zlib.gzip(body)
+      
+    else 
+     # body=body.unpack('C*').pack('U*');
+    end
+    puts "main"
+    #puts body
+    res['Content-Length'] = body.length
+    res.body=body
+    #Net::HTTP.finish
+  rescue => error
+   body=error.inspect
+   res['Content-Length'] = body.length
+   res.body=body
 end
