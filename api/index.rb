@@ -71,15 +71,16 @@ Handler = Proc.new do |req, res|
   end
   body=response.body
   if(response.header['content-encoding'])&&(response.header['content-encoding']=='gzip')&&(response.header['content-type']=='text/html')
-    body = Zlib.gunzip(body)
-    body=body.unpack('C*').pack('U*');
-    body = Zlib.gzip(body)
-    res['Content-Length'] = body.length
+   # body = Zlib.gunzip(body)
+    #body=body.unpack('C*').pack('U*');
+   # body = Zlib.gzip(body)
+    
   else 
    # body=body.unpack('C*').pack('U*');
   end
   puts "main"
   #puts body
+  res['Content-Length'] = body.length
   res.body=body
   #Net::HTTP.finish
 end
