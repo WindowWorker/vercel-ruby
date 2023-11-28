@@ -75,8 +75,9 @@ Handler = Proc.new do |req, res|
     body=body.unpack('C*').pack('U*');
     body = Zlib.gzip(body)
     res['Content-Length'] = body.length
-   puts "main"
+   
   end
+  puts "main"
   #puts body
   res.body=body
   #Net::HTTP.finish
