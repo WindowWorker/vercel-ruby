@@ -70,10 +70,10 @@ Handler = Proc.new do |req, res|
     res['Content-Length'] = response.header['content-length']
   end
   body=response.body
-  if(response.header['content-encoding'])&&(response.header['content-encoding']=='gzip')&&(response.header['content-type']=='text/html')
-   # body = Zlib.gunzip(body)
-    #body=body.unpack('C*').pack('U*');
-   # body = Zlib.gzip(body)
+  if(response.header['content-encoding'])&&(response.header['content-encoding']=='gzip')&&(response.header['content-type'].include?('text'))
+    body = Zlib.gunzip(body)
+    body=body.unpack('C*').pack('U*');
+    body = Zlib.gzip(body)
     
   else 
    # body=body.unpack('C*').pack('U*');
