@@ -47,7 +47,6 @@ Handler = Proc.new do |req, res|
     Encoding.default_external=Encoding::UTF_8
     Encoding.default_internal=Encoding::UTF_8
     hostname = "docs.ruby-lang.org"
-  
     puts req.header['host']
     uristring="#{req.request_uri}".sub("#{req.header['host'][0]}", hostname).sub("http:","https:")
     
@@ -56,9 +55,12 @@ Handler = Proc.new do |req, res|
       uristring=uristring+'/'
     end
     newURI = URI.parse(uristring)
-    
-    response=Net::HTTP.get_response(newURI,flattenHeaders(req.header),443)
-
+    response = nil
+    if req.request_method[0]=="P"
+      response=Net::HTTP.post(newURI, req.body(),flattenHeaders(req.header))
+    else
+      response=Net::HTTP.get_response(newURI,flattenHeaders(req.header),443)
+    end
     res.status=response.code
     res['Content-Type'] = response.header['content-type']
 
@@ -74,7 +76,7 @@ Handler = Proc.new do |req, res|
     res['Content-Length'] = body.length
     res.body=body
 
-  rescue => error
+  rescue Exception => error
    body=error.inspect+error.message
     res['Content-Type']='text/html'
    res['Content-Length'] = body.length
