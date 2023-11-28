@@ -72,23 +72,7 @@ Handler = Proc.new do |req, res|
   body=response.body
   if(response.header['content-encoding'])&&(response.header['content-encoding']=='gzip')&&(response.header['content-type']=='text/html')
     body = Zlib.gunzip(body)
-    #body=body.unpack('C*')
-    puts body.unpack('C*').length
-    puts body.unpack('U*').length
-    bodyChars=body.unpack('U*')#body.split("");
-    puts bodyChars.length
-    body="".encode("UTF-8");
-    bodyChars.each do |c|
-    
-     d = [c].pack('U*').encode("UTF-16").encode("UTF-8")
-     
-
-     body = body + d
-    end
-    puts body.encode('UTF-8')
-    #ã
-    puts "語".unpack('U*')
-    puts body.include?("\\x")
+    body=body.unpack('C*').pack('U*');
     body = Zlib.gzip(body)
     
     res['Content-Length'] = body.length
