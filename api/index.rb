@@ -77,10 +77,10 @@ Handler = Proc.new do |req, res|
     puts body.unpack('U*').length
     bodyChars=body.unpack('U*')#body.split("");
     puts bodyChars.length
-    body="";
+    body="".encode("utf-8");
     bodyChars.each do |c|
      puts c
-     d = [c].pack('U*')
+     d = [c].pack('U*').encode("utf-8")
      puts d
      # puts c.unpack('U')
      #d = d[1,d.length-2]
