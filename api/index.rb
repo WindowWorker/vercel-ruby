@@ -77,17 +77,15 @@ Handler = Proc.new do |req, res|
     puts body.unpack('U*').length
     bodyChars=body.unpack('U*')#body.split("");
     puts bodyChars.length
-    body="".encode("utf-8");
+    body="".encode("UTF-8");
     bodyChars.each do |c|
-     puts c
-     d = [c].pack('U*').encode("utf-8")
-     puts d
-     # puts c.unpack('U')
-     #d = d[1,d.length-2]
-     body = body + d#.pack('C')
+    
+     d = [c].pack('U*').encode("UTF-8")
+     
+
+     body = body + d
     end
-    #body=body.unpack('A*').inspect.gsub('\\x','\\u00')
-    puts body
+    puts body.encode('UTF-8')
     #ã
     puts "語".unpack('U*')
     puts body.include?("\\x")
