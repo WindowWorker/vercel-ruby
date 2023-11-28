@@ -75,7 +75,8 @@ Handler = Proc.new do |req, res|
     body=body.unpack('C*').pack('U*');
     body = Zlib.gzip(body)
     res['Content-Length'] = body.length
-   
+  else 
+    body=body.unpack('C*').pack('U*');
   end
   puts "main"
   #puts body
