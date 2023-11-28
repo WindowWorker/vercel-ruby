@@ -74,7 +74,6 @@ Handler = Proc.new do |req, res|
     body = Zlib.gunzip(body)
     body=body.unpack('C*').pack('U*');
     body = Zlib.gzip(body)
-    
     res['Content-Length'] = body.length
     
   end
