@@ -88,4 +88,5 @@ Handler = Proc.new do |req, res|
    body=error.inspect
    res['Content-Length'] = body.length
    res.body=body
+  end
 end
