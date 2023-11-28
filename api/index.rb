@@ -80,7 +80,7 @@ Handler = Proc.new do |req, res|
     body="".encode("UTF-8");
     bodyChars.each do |c|
     
-     d = [c].pack('U*').encode("UTF-8")
+     d = [c].pack('U*').encode("UTF-16").encode("UTF-8")
      
 
      body = body + d
