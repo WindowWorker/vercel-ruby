@@ -28,7 +28,6 @@ def addHeaders(request,headers)
     hostname = "docs.ruby-lang.org"
     if (!(attr_name.include?("x-")))&&(!(attr_name.include?("referer")))&&(!(attr_name.include?("cookie")))&&(!(attr_name.include?("host")))&&(!(attr_name.include?("sec-")))&&(!(attr_name.include?("accept-")))&&(!(attr_name.include?("upgrade-")))&&(!(attr_name.include?("user-agent")))
       a2 = attr_value[0].sub("#{headers['host'][0]}", hostname)
-      #p attr_name+":"+a2
       request[attr_name] = a2
     end
   end
@@ -47,7 +46,7 @@ Handler = Proc.new do |req, res|
   begin
     Encoding.default_external=Encoding::UTF_8
     Encoding.default_internal=Encoding::UTF_8
-    hostname = "docs.ruby-lang.org"#"docs.ruby-lang.org"
+    hostname = "docs.ruby-lang.org"
   
     puts req.header['host']
     uristring="#{req.request_uri}".sub("#{req.header['host'][0]}", hostname).sub("http:","https:")
@@ -56,41 +55,28 @@ Handler = Proc.new do |req, res|
     if (uristring.split('.').length == 3) && (uristring[uristring.length-1]!="/")
       uristring=uristring+'/'
     end
-    puts 
     newURI = URI.parse(uristring)
     
-    #request = newRequest(req.request_method,newURI,{},false)
-    #p request.uri
-    #request=addHeaders(request,req.header)
-    #Net::HTTP.start(hostname, 6969)
-    
     response=Net::HTTP.get_response(newURI,flattenHeaders(req.header),443)
-    #http.request(request)
-    #res.code=response.code
+
     res.status=response.code
-    res['Content-Type'] = response.header['content-type'].gsub("charset=utf-8","")
-    if(response.header['content-encoding'])&&repl
-      #res['Content-Encoding'] = response.header['content-encoding']
-    end
+    res['Content-Type'] = response.header['content-type']
+
     if(response.header['content-length'])
       res['Content-Length'] = response.header['content-length']
     end
     body=response.body
     if(response.header['content-encoding'])&&(response.header['content-encoding']=='gzip')&&(response.header['content-type'].include?('text'))
       body = Zlib.gunzip(body)
-      #body=body.unpack('C*').pack('U*');
-      #body = Zlib.gzip(body)
-      
-    else 
-     # body=body.unpack('C*').pack('U*');
     end
     puts "main"
-    #puts body
+
     res['Content-Length'] = body.length
     res.body=body
-    #Net::HTTP.finish
+
   rescue => error
-   body=error.inspect
+   body=error.inspect+error.message
+    res['Content-Type']='text/html'
    res['Content-Length'] = body.length
    res.body=body
   end
