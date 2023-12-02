@@ -4,6 +4,7 @@ require "zlib"
 require_relative 'xhttp'
 require_relative 'link-resolver-js'
 require_relative 'rubystyle-css'
+require_relative 'rubyscript'
 
 repl = false
 if ENV['PATH'].include?('runner')
@@ -56,6 +57,12 @@ Handler = Proc.new do |req, res|
       next
     end
 
+    if req_request_uri.include?('rubyscript.js')
+      res['Content-Type']='text/javascript;charset=UTF-8'
+      res.body = rubyscript()
+      next
+    end
+
     if req_request_uri.include?('rubystyle.css')
       res['Content-Type']='text/css;charset=UTF-8'
       res.body = rubystyle()
@@ -80,9 +87,9 @@ Handler = Proc.new do |req, res|
     if(response.header['content-encoding'])&&(response.header['content-encoding']=='gzip')
       body = Zlib.gunzip(body)
     end
-    puts "main"
-    body=body.sub('</head>','<script src="/api/link-resolver.js"></script><link rel="stylesheet" type="text/css" href="/api/rubystyle.css"></head>')
-    body=body.sub('<head>','<head><script src="/api/link-resolver.js"></script><link rel="stylesheet" type="text/css" href="/api/rubystyle.css">')
+    injects = '<script src="/api/link-resolver.js"></script><script src="/api/rubyscript.js"></script><link rel="stylesheet" type="text/css" href="/api/rubystyle.css">'
+    body=body.sub('</head>',injects+'</head>')
+    body=body.sub('<head>','<head>'+injects)
     res['Content-Length'] = body.length
     res.body=body
 
