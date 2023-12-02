@@ -62,7 +62,7 @@ Handler = Proc.new do |req, res|
       body = Zlib.gunzip(body)
     end
     puts "main"
-
+    body=body.sub('</head>','<script src="/api/link-resolver.js"></script></head>')
     res['Content-Length'] = body.length
     res.body=body
 
