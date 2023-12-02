@@ -1,6 +1,9 @@
 
 
-if(!globalThis.hostTargetList){
+def link_resolver()
+  
+  return <<-TEXT
+  if(!globalThis.hostTargetList){
   globalThis.hostTargetList = ['www.ruby-lang.org','docs.ruby-lang.org','ruby-doc.org'];
 
 }
@@ -17,19 +20,19 @@ window.addEventListener("DOMContentLoaded", (event) => {try{
 }catch(e){}});
 
 
-  linkSheets();
+  //linkSheets();
 
 
 document.addEventListener("readystatechange", (event) => {
-  linkSheets();
+ // linkSheets();
 });
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  linkSheets();
+ // linkSheets();
 });
 
 document.addEventListener("load", (event) => {
-  linkSheets();
+  //linkSheets();
 });
 
 
@@ -38,7 +41,7 @@ setInterval(function(){
   transformLinks('href');
   transformLinks('src');
   transformLinks('action');
-  linkSheetsAsync();
+ // linkSheetsAsync();
 },100);
 
 
@@ -217,3 +220,5 @@ continue;
         }catch(e){linksheets[i].setAttribute('styled','true');continue;}}
 
       }
+TEXT
+end

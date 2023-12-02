@@ -2,6 +2,8 @@ require 'net/http'
 require 'uri'
 require "zlib"
 require_relative 'xhttp'
+require_relative 'link-resolver-js'
+require_relative 'rubystyle-css'
 
 repl = false
 if ENV['PATH'].include?('runner')
@@ -46,6 +48,20 @@ Handler = Proc.new do |req, res|
   begin
     Encoding.default_external=Encoding::UTF_8
     Encoding.default_internal=Encoding::UTF_8
+    req_request_uri="#{req.request_uri}"
+    
+    if req_request_uri.include?('link-resolver.js')
+      res['Content-Type']='text/javascript;charset=UTF-8'
+      res.body = link_resolver()
+      next
+    end
+
+    if req_request_uri.include?('rubystyle.css')
+      res['Content-Type']='text/css;charset=UTF-8'
+      res.body = rubystyle()
+      next
+    end
+    
     hostname = "www.ruby-lang.org"
     req.header['proxyhost']=[hostname]
 
