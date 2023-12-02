@@ -1,7 +1,7 @@
 
 
 if(!globalThis.hostTargetList){
-  globalThis.hostTargetList = ['nodejs.org'];
+  globalThis.hostTargetList = ['www.ruby-lang.org','docs.ruby-lang.org','ruby-doc.org'];
 
 }
 
