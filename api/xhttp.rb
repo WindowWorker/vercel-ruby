@@ -1,3 +1,6 @@
+require 'net/http'
+require 'uri'
+require "zlib"
 
 
 def newRequest (method,uri,headers,body)
@@ -42,4 +45,40 @@ def newRequest (method,uri,headers,body)
   end
   puts req
   return req
+end
+
+def flattenReqHeaders(req)
+  headers = req.header
+  hostname=headers['host'][0]
+  if(req.header['proxyhost'])
+    hostname=req.header['proxyhost'][0]
+  end
+  flatHeaders={};
+  headers.each do |attr_name, attr_value|
+    if !(attr_name.include?("x-"))
+      flatHeaders[attr_name]=attr_value[0].sub("#{headers['host'][0]}", hostname)
+    end
+  end
+  return flatHeaders
+end
+
+def fetch(req)
+  hostname=req.header['host'][0]
+  if(req.header['proxyhost'])
+    hostname=req.header['proxyhost'][0]
+  end
+
+  uristring="#{req.request_uri}".sub("#{req.header['host'][0]}", hostname).sub("http:","https:")
+
+  if (uristring.split('.').length == 3) && (uristring[uristring.length-1]!="/")
+    uristring=uristring+'/'
+  end
+  newURI = URI.parse(uristring)
+  response = nil
+  if req.request_method[0]=="P"
+    response=Net::HTTP.post(newURI, req.body(),flattenReqHeaders(req))
+  else
+    response=Net::HTTP.get_response(newURI,flattenReqHeaders(req),443)
+  end
+  return response
 end

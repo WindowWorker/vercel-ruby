@@ -1,7 +1,7 @@
 require 'net/http'
 require 'uri'
 require "zlib"
-
+require_relative 'xhttp'
 
 repl = false
 if ENV['PATH'].include?('runner')
@@ -47,21 +47,10 @@ Handler = Proc.new do |req, res|
     Encoding.default_external=Encoding::UTF_8
     Encoding.default_internal=Encoding::UTF_8
     hostname = "docs.ruby-lang.org"
-    puts req.header['host']
-    uristring="#{req.request_uri}".sub("#{req.header['host'][0]}", hostname).sub("http:","https:")
+    req.header['proxyhost']=[hostname]
+
+    response=fetch(req)
     
-    puts uristring
-    if (uristring.split('.').length == 3) && (uristring[uristring.length-1]!="/")
-      uristring=uristring+'/'
-    end
-    newURI = URI.parse(uristring)
-    response = nil
-    if req.request_method[0]=="P"
-      puts req.body()
-      response=Net::HTTP.post(newURI, req.body(),flattenHeaders(req.header))
-    else
-      response=Net::HTTP.get_response(newURI,flattenHeaders(req.header),443)
-    end
     res.status=response.code
     res['Content-Type'] = response.header['content-type']
 
