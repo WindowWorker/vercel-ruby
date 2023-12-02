@@ -14,7 +14,7 @@ end
 def flattenHeaders(headers)
   flatHeaders={};
   headers.each do |attr_name, attr_value|
-    hostname = "docs.ruby-lang.org"
+    hostname = "www.ruby-lang.org"
     if !(attr_name.include?("x-"))
       flatHeaders[attr_name]=attr_value[0].sub("#{headers['host'][0]}", hostname)
     end
@@ -25,7 +25,7 @@ end
 def addHeaders(request,headers)
   flatHeaders={};
   headers.each do |attr_name, attr_value|
-    hostname = "docs.ruby-lang.org"
+    hostname = "www.ruby-lang.org"
     if (!(attr_name.include?("x-")))&&(!(attr_name.include?("referer")))&&(!(attr_name.include?("cookie")))&&(!(attr_name.include?("host")))&&(!(attr_name.include?("sec-")))&&(!(attr_name.include?("accept-")))&&(!(attr_name.include?("upgrade-")))&&(!(attr_name.include?("user-agent")))
       a2 = attr_value[0].sub("#{headers['host'][0]}", hostname)
       request[attr_name] = a2
@@ -46,7 +46,7 @@ Handler = Proc.new do |req, res|
   begin
     Encoding.default_external=Encoding::UTF_8
     Encoding.default_internal=Encoding::UTF_8
-    hostname = "docs.ruby-lang.org"
+    hostname = "www.ruby-lang.org"
     req.header['proxyhost']=[hostname]
 
     response=fetch(req)
