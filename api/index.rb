@@ -57,6 +57,7 @@ Handler = Proc.new do |req, res|
     newURI = URI.parse(uristring)
     response = nil
     if req.request_method[0]=="P"
+      puts req.body()
       response=Net::HTTP.post(newURI, req.body(),flattenHeaders(req.header))
     else
       response=Net::HTTP.get_response(newURI,flattenHeaders(req.header),443)
