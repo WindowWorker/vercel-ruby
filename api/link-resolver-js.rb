@@ -4,7 +4,7 @@ def link_resolver()
   
   return <<-TEXT
   if(!globalThis.hostTargetList){
-  globalThis.hostTargetList = ['www.ruby-lang.org','docs.ruby-lang.org','ruby-doc.org'];
+  globalThis.hostTargetList = ['www.ruby-lang.org','docs.ruby-lang.org','ruby-doc.org','www.ruby-doc.org'];
 
 }
 

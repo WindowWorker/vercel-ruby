@@ -63,6 +63,9 @@ Handler = Proc.new do |req, res|
     end
     
     hostname = "www.ruby-lang.org"
+    if req_request_uri.include?('hostname=')
+      hostname=req_request_uri.split('hostname=')[1].split('&')[0]
+    end
     req.header['proxyhost']=[hostname]
 
     response=fetch(req)
@@ -79,6 +82,7 @@ Handler = Proc.new do |req, res|
     end
     puts "main"
     body=body.sub('</head>','<script src="/api/link-resolver.js"></script><link rel="stylesheet" type="text/css" href="/api/rubystyle.css"></head>')
+    body=body.sub('<head>','<head><script src="/api/link-resolver.js"></script><link rel="stylesheet" type="text/css" href="/api/rubystyle.css">')
     res['Content-Length'] = body.length
     res.body=body
 
