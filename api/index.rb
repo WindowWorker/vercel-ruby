@@ -104,7 +104,7 @@ Handler = Proc.new do |req, res|
     if(response.header['content-encoding'])&&(response.header['content-encoding']=='gzip')
       body = Zlib.gunzip(body)
     end
-    injects ='<script>globalThis.proxyhost='+ req.header['proxyhost'][0] +';</script>' + '<script src="/api/link-resolver.js"></script><script src="/api/rubyscript.js"></script><link rel="stylesheet" type="text/css" href="/api/rubystyle.css">'
+    injects ='<script>globalThis.proxyhost="'+ req.header['proxyhost'][0] +'";</script>' + '<script src="/api/link-resolver.js"></script><script src="/api/rubyscript.js"></script><link rel="stylesheet" type="text/css" href="/api/rubystyle.css">'
     body=body.sub('</head>',injects+'</head>')
     body=body.sub('<head>','<head>'+injects)
     res['Content-Length'] = body.length
