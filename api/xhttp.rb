@@ -63,7 +63,7 @@ def flattenReqHeaders(req)
 end
 
 def fetch(req)
-  response=nil
+  response={}
   begin
   hostname=req.header['host'][0]
   if(req.header['proxyhost'])
