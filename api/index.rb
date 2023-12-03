@@ -106,7 +106,9 @@ Handler = Proc.new do |req, res|
     end
     injects ='<script>globalThis.proxyhost="'+ req.header['proxyhost'][0] +'";</script>' + '<script src="/api/link-resolver.js"></script><script src="/api/rubyscript.js"></script><link rel="stylesheet" type="text/css" href="/api/rubystyle.css">'
     body=body.sub('</head>',injects+'</head>')
+    body=body.sub('</HEAD>',injects+'</HEAD>')
     body=body.sub('<head>','<head>'+injects)
+    body=body.sub('<HEAD>','<HEAD>'+injects)
     res['Content-Length'] = body.length
     res.body=body
 
