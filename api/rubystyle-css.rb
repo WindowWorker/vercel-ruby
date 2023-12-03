@@ -14,15 +14,11 @@ background-size: 25% !important;
 background-position-y: 120% !important;
 }
 
-html[window-location*="sapphire"]{
+html[window-location*="sapphire"]:not([framed]){
 filter:hue-rotate(-120deg);
 }
 
-html[window-location*="sapphire"] iframe,
-html[window-location*="sapphire"] frame
-{
-filter:hue-rotate(120deg);
-}
+
 
 
 html[window-location*="sapphire"] #header_content>a{

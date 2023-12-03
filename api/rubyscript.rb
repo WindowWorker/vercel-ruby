@@ -9,7 +9,9 @@ let ruby_html = document.querySelector('html');
 
 ruby_html.setAttribute('window-location' , window.location.href);
 ruby_html.setAttribute('user-agent' , navigator.userAgent);
-
+if (window!=window.top){
+ruby_html.setAttribute('framed','');
+}
 function swapSapphireText(el){
 
   if(!el){return;}
