@@ -8,6 +8,9 @@ def rubystyle()
   background-size: 20% !important;
 }
 
+@media screen and (min-width: 768px) #home-page-layout #intro a.download-link{
+background:#CC342D url(https://archives.bulbagarden.net/media/upload/8/8e/Ani383OD.png) no-repeat 8px center !important;
+}
 
 html[window-location*="sapphire"]{
 filter:hue-rotate(-120deg);
