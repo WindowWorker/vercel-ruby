@@ -48,6 +48,14 @@ setInterval(function(){
 
 async function transformLinks(attr){
 
+let rubydocs=document.querySelectorAll('a[href*="www.ruby-doc.com"],a[href*="ruby-doc.org"]')
+let rubydocs_length=rubydocs.length;
+for(let i=0;i<rubydocs_length;i++){try{
+rubydocs[i].href=rubydocs[i].href
+.replace(/www.ruby-doc.com/gi,'ruby-doc.com')
+.replace(/www.ruby-doc.org/gi,'ruby-doc.com')
+.replace(/ruby-doc.org/gi,'ruby-doc.com');
+}catch(e){continue;}}
 
  let pkgs = document.querySelectorAll('['+attr+'^="/"]:not([backup]),['+attr+'^="./"]:not([backup]),['+attr+'^="../"]:not([backup]),['+attr+']:not(['+attr+'*=":"]):not([backup])');
   let pkgs_length = pkgs.length;

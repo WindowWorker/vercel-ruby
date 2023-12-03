@@ -26,5 +26,7 @@ html[window-location*="docs.ruby-lang.org"] a{
 color: #CC342D !important;
 }
 
+.carbonad{display:none !important;}
+
 TEXT
 end
