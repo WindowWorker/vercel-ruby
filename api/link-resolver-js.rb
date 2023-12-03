@@ -119,6 +119,8 @@ logos[x].src='/mode.svg';
     let localhostname = globalThis.proxyhost;
     if(window.location.href.includes('hostname=')){
     localhostname = window.location.href.split('hostname=')[1].split('&')[0].split('?')[0].split('#')[0];
+    }else{
+      if(!(globalThis.proxyhost)){return;}
     }
     pkgs = document.querySelectorAll('['+attr+'^="'+window.location.origin+'"]:not(['+attr+'*="hostname="],['+attr+'$="tour"],['+attr+'$="tour/"])');
     pkgs_length = pkgs.length;

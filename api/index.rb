@@ -72,7 +72,10 @@ Handler = Proc.new do |req, res|
     
     hostname = "www.ruby-lang.org"
     if req_request_uri.include?('hostname=')
-      hostname=req_request_uri.split('hostname=')[1].split('&')[0]
+      hostnamep=req_request_uri.split('hostname=')[1].split('&')[0]
+      if hostnamep
+        hostname = hostnamep
+      end
     end
     req.header['proxyhost']=[hostname]
 
