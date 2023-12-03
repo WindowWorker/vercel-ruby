@@ -80,7 +80,7 @@ Handler = Proc.new do |req, res|
     req.header['proxyhost']=[hostname]
     
     response=fetch(req)
-    if Integer(response.code) > 299
+    if response.code.to_i > 299
       originhost = req.header['proxyhost'][0]
       for host in hostTargetList do
         if host == originhost
@@ -88,10 +88,10 @@ Handler = Proc.new do |req, res|
         end
         req.header['proxyhost']=[host]
         fresponse=fetch(req)
-        if Integer(response.code) < 400
+        if response.code.to_i < 400
           response=fresponse
         end
-        if Integer(response.code) < 300
+        if response.code.to_i < 300
           break
         end
       end
