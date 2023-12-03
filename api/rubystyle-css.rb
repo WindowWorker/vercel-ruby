@@ -10,6 +10,8 @@ def rubystyle()
 
  a.download-link{
 background:#CC342D url(https://archives.bulbagarden.net/media/upload/8/8e/Ani383OD.png) no-repeat 8px center !important;
+background-size: 25% !important;
+background-position-y: 100% !important;
 }
 
 html[window-location*="sapphire"]{
