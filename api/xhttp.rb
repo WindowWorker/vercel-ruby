@@ -63,6 +63,8 @@ def flattenReqHeaders(req)
 end
 
 def fetch(req)
+  response=nil
+  begin
   hostname=req.header['host'][0]
   if(req.header['proxyhost'])
     hostname=req.header['proxyhost'][0]
@@ -81,4 +83,9 @@ def fetch(req)
     response=Net::HTTP.get_response(newURI,flattenReqHeaders(req),443)
   end
   return response
+    rescue Exception => error
+     response.body=error.inspect+error.message
+     response.code='500';
+     return response
+    end
 end

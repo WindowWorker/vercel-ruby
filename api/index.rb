@@ -73,7 +73,7 @@ Handler = Proc.new do |req, res|
     hostname = "www.ruby-lang.org"
     if req_request_uri.include?('hostname=')
       hostnamep=req_request_uri.split('hostname=')[1].split('&')[0]
-      if hostnamep
+      if hostnamep && (hostnamep != 'undefined')
         hostname = hostnamep
       end
     end
