@@ -22,8 +22,11 @@ html[window-location*="sapphire"] #header_content>a{
 
 
 
-a,
-h1{
+html[window-location*="docs.ruby-lang.org"] a,
+html[window-location*="ruby-doc.com"] a,
+html[window-location*="ruby-doc.com"] h1,
+html[window-location*="stdlib"] a,
+html[window-location*="stdlib"] h1{
 color: #CC342D !important;
 }
 
