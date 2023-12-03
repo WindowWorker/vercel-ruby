@@ -49,6 +49,7 @@ Handler = Proc.new do |req, res|
   begin
     Encoding.default_external=Encoding::UTF_8
     Encoding.default_internal=Encoding::UTF_8
+    hostTargetList = ['www.ruby-lang.org','docs.ruby-lang.org','ruby-doc.com'];
     req_request_uri="#{req.request_uri}"
     
     if req_request_uri.include?('link-resolver.js')
@@ -76,6 +77,19 @@ Handler = Proc.new do |req, res|
     req.header['proxyhost']=[hostname]
 
     response=fetch(req)
+    if Integer(response.code) > 299
+      originhost = req.header['proxyhost'][0]
+      for host in hostTargetList do
+        if host == originhost
+          next
+        end
+        req.header['proxyhost']=[host]
+        response=fetch(req)
+        if Integer(response.code) < 300
+          break
+        end
+      end
+    end
     
     res.status=response.code
     res['Content-Type'] = response.header['content-type']
