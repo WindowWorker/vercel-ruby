@@ -76,7 +76,7 @@ html[window-location*="sapphire"][window-location*="ruby-doc.com"] #header a{
 
 
 html[window-location*="emerald"]:not([framed]){
-filter:hue-rotate(-135deg);
+filter:hue-rotate(135deg);
 }
 
 html[window-location*="emerald"] #header_content>a{
@@ -84,7 +84,7 @@ html[window-location*="emerald"] #header_content>a{
   no-repeat left 8px !important;
   background-size: 25% !important;
   background-position-y: bottom !important;
-  filter:hue-rotate(135deg);
+  filter:hue-rotate(-135deg);
 }
 
 
@@ -94,7 +94,7 @@ html[window-location*="emerald"] #header_content>a{
     background:#CC342D url(https://archives.bulbagarden.net/media/upload/2/27/Box_XD_384.png) no-repeat 8px center !important;
     background-size: 25% !important;
     background-position-y: bottom !important;
-    filter: hue-rotate(120deg);
+    filter: hue-rotate(-135deg);
       background-color: #34CC2D !important;
       border: 2px solid #1c9b16 !important;
       -webkit-box-shadow: 0 2px 0 #1c9b16 !important;
@@ -107,10 +107,10 @@ html[window-location*="emerald"] #header_content>a{
 
 html[window-location*="emerald"][window-location*="ruby-doc.com"] #header{
   background:url(https://archives.bulbagarden.net/media/upload/4/4f/Spr_3e_384.png) 850px 0 no-repeat !important;
-  filter:hue-rotate(135deg)
+  filter:hue-rotate(-135deg)
 }
 html[window-location*="emerald"][window-location*="ruby-doc.com"] #header a{
-  filter:hue-rotate(-135deg);
+  filter:hue-rotate(135deg);
   color:#34CC2D !important;
 }
 
