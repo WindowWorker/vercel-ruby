@@ -5,7 +5,7 @@ def rubystyle()
  return <<-TEXT
  
 #header_content>a{
-  background:  url(https://archives.bulbagarden.net/media/upload/e/ed/Spr_5b_383.png) 
+  background:  url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/e/ed/Spr_5b_383.png) 
   no-repeat left 8px !important;
   background-size: 20% !important;
 }
@@ -13,7 +13,7 @@ def rubystyle()
 @media screen and (min-width: 768px) {
 
   a.download-link{
-    background:#CC342D url(https://archives.bulbagarden.net/media/upload/8/8e/Ani383OD.png) no-repeat 8px center !important;
+    background:#CC342D url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/8/8e/Ani383OD.png) no-repeat 8px center !important;
     background-size: 25% !important;
     background-position-y: bottom !important;
   }
@@ -21,7 +21,7 @@ def rubystyle()
 }
 
 html[window-location*="ruby-doc.com"] #header{
-background:url(https://archives.bulbagarden.net/media/upload/7/7d/Spr_3e_383.png) 850px 0 no-repeat !important;
+background:url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/7/7d/Spr_3e_383.png) 850px 0 no-repeat !important;
 }
 
 
@@ -35,7 +35,7 @@ filter:hue-rotate(-120deg);
 }
 
 html[window-location*="sapphire"] #header_content>a{
-  background:  url(https://archives.bulbagarden.net/media/upload/1/10/Spr_5b_382.png) 
+  background:  url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/1/10/Spr_5b_382.png) 
   no-repeat left 8px !important;
   background-size: 25% !important;
   background-position-y: bottom !important;
@@ -46,7 +46,7 @@ html[window-location*="sapphire"] #header_content>a{
 @media screen and (min-width: 768px) {
 
  html[window-location*="sapphire"] a.download-link{
-    background:#CC342D url(https://archives.bulbagarden.net/media/upload/c/c6/Ani382OD.png) no-repeat 8px center !important;
+    background:#CC342D url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/c/c6/Ani382OD.png) no-repeat 8px center !important;
     background-size: 25% !important;
     background-position-y: bottom !important;
     filter: hue-rotate(120deg);
@@ -61,7 +61,7 @@ html[window-location*="sapphire"] #header_content>a{
 }
 
 html[window-location*="sapphire"][window-location*="ruby-doc.com"] #header{
-background:url(https://archives.bulbagarden.net/media/upload/8/80/Spr_3e_382.png) 850px 0 no-repeat !important;
+background:url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/8/80/Spr_3e_382.png) 850px 0 no-repeat !important;
 filter: hue-rotate(120deg);
 
 }
@@ -80,7 +80,7 @@ filter:hue-rotate(135deg);
 }
 
 html[window-location*="emerald"] #header_content>a{
-  background:  url(https://archives.bulbagarden.net/media/upload/5/55/Spr_5b_384.png) 
+  background:  url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/5/55/Spr_5b_384.png) 
   no-repeat left 8px !important;
   background-size: 25% !important;
   background-position-y: bottom !important;
@@ -91,7 +91,7 @@ html[window-location*="emerald"] #header_content>a{
 @media screen and (min-width: 768px) {
 
  html[window-location*="emerald"] a.download-link{
-    background:#CC342D url(https://archives.bulbagarden.net/media/upload/2/27/Box_XD_384.png) no-repeat 8px center !important;
+    background:#CC342D url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/2/27/Box_XD_384.png) no-repeat 8px center !important;
     background-size: 18% !important;
     background-position-y: bottom !important;
     filter: hue-rotate(-135deg);
@@ -106,7 +106,7 @@ html[window-location*="emerald"] #header_content>a{
 }
 
 html[window-location*="emerald"][window-location*="ruby-doc.com"] #header{
-  background:url(https://archives.bulbagarden.net/media/upload/4/4f/Spr_3e_384.png) 850px 0 no-repeat !important;
+  background:url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/4/4f/Spr_3e_384.png) 850px 0 no-repeat !important;
   filter:hue-rotate(-135deg)
 }
 html[window-location*="emerald"][window-location*="ruby-doc.com"] #header a{
