@@ -153,8 +153,9 @@ Handler = Proc.new do |req, res|
     <img src="https://archives.bulbagarden.net/media/upload/5/55/Spr_5b_384.png"></img>
     <img src="https://archives.bulbagarden.net/media/upload/2/27/Box_XD_384.png"></img>
     <img src="https://archives.bulbagarden.net/media/upload/4/4f/Spr_3e_384.png"></img>
-    </preload>    
-        TEXT
+    </preload>
+    
+TEXT +'';
 
     
     body=body.sub('</head>',injects+'</head>')
