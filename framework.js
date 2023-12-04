@@ -1,11 +1,4 @@
 
-def rubyscript()
-
-return <<-TEXT
-
-void function rubyscript(){
-
-
 
 Element.prototype.updateAttribute=function(attr,val){
 const el = this;
@@ -25,21 +18,21 @@ globalThis.declare=function(func){
 };
 
 globalThis.declareEvaluator=function(){
-	
+
     const declarations_length = declarations.length;
-	for(let i = 0;i < declarations_length;i++){try{
-		
-		declarations[i]();
-		
-	}catch(e){console.log(e);continue;}}
-    
+  for(let i = 0;i < declarations_length;i++){try{
+
+    declarations[i]();
+
+  }catch(e){console.log(e);continue;}}
+
 };
 
 setInterval(function(){globalThis.declareEvaluator();},100);
 
 
 
-globalThis.page_html = document.querySelector('html');
+let page_html = document.querySelector('html');
 
 page_html.setAttribute('window-location' , window.location.href);
 declare(()=>page_html.updateAttribute('window-location' , window.location.href));
@@ -48,12 +41,12 @@ page_html.setAttribute('user-agent' , navigator.userAgent);
 declare(()=>page_html.updateAttribute('user-agent' , navigator.userAgent));
 
 if (window!=window.top){
-page_html.setAttribute('framed','');
+page_html.setAttribute('framed','true');
 }
 
 declare(()=>{
 
-  if(window.innerHeight==window.innerWidth){
+  if(window.innerHeight=window.innerWidth){
     page_html.updateAttribute('orientation','square');
   }
   if(window.innerHeight>window.innerWidth){
@@ -64,44 +57,3 @@ declare(()=>{
   }
 
 });
-
-
-function swapSapphireText(el){
-
-  if(!el){return;}
-  var n, a=[], walk=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
-  while(n=walk.nextNode()){
-  a.push(n);
-    let ntext=n.textContent;
-
-  ntext=ntext.replace(/ruby/gi,'Sapphire');
-
-  if(ntext!=n.textContent){
-    n.textContent=ntext;
-  }
-
-  };
-  if(document.title.toLowerCase().includes('ruby')){
-    document.title=document.title
-      .replace(/ruby/gi,'Sapphire')
-     }
-  return a;
-  }
-
-
-if(window.location.href.toLowerCase().includes('sapphire')){
-setInterval(function(){
-
-swapSapphireText(document.body);
-
-},100);
-
-}
-
-}();
-
-
-
-TEXT
-
-end
