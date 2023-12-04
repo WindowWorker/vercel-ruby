@@ -78,7 +78,8 @@ Handler = Proc.new do |req, res|
     end
 
     if req_request_uri.include?('favicon')
-      res['location']='favicon'
+      res.header['location']=favicon
+      res.status='301'
       next
     end
     
