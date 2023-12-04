@@ -62,9 +62,14 @@ html[window-location*="sapphire"] #header_content>a{
 
 html[window-location*="sapphire"][window-location*="ruby-doc.com"] #header{
 background:url(https://archives.bulbagarden.net/media/upload/8/80/Spr_3e_382.png) 850px 0 no-repeat !important;
+filter: hue-rotate(120deg);
+
 }
 
-
+html[window-location*="sapphire"][window-location*="ruby-doc.com"] #header a{
+  filter:hue-rotate(-120deg);
+  color:#CC342D !important;
+}
 
 
 
