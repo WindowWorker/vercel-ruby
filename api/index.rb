@@ -120,11 +120,11 @@ Handler = Proc.new do |req, res|
       body = Zlib.gunzip(body)
     end
 
-    
+    puts body
     injects ='<script>globalThis.proxyhost="'+ req.header['proxyhost'][0] +'";</script>' +  <<-TEXT
         <script src="/api/link-resolver.js"></script>
         <script src="/api/rubyscript.js"></script>
-        <script src="/api/hiasdfghlight.js"></script>
+        <script src="/api/highlight.js"></script>
         <link rel="stylesheet" type="text/css" href="/api/rubystyle.css"> 
 
     <preload style="display:block;visibility:hidden;height:0px;width:0px;border:none;padding:0px;margin:0px;">
