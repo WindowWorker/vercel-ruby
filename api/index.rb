@@ -121,7 +121,7 @@ Handler = Proc.new do |req, res|
     end
 
     
-    injects ='<script>globalThis.proxyhost="'+ req.header['proxyhost'][0] +'";</script>' + <<-TEXT
+    injects ='<script>globalThis.proxyhost="'+ req.header['proxyhost'][0] +'";</script>'  <<-DOC
     <script src="/api/link-resolver.js"></script>
     <script src="/api/rubyscript.js"></script>
     <script src="/api/highlight.js"></script>
@@ -154,7 +154,7 @@ Handler = Proc.new do |req, res|
 <img src="https://archives.bulbagarden.net/media/upload/2/27/Box_XD_384.png"></img>
 <img src="https://archives.bulbagarden.net/media/upload/4/4f/Spr_3e_384.png"></img>
 </preload>    
-    TEXT 
+    DOC 
 
 
     
