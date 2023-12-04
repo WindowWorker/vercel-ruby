@@ -13,7 +13,7 @@ def rubystyle()
 @media screen and (min-width: 768px) {
 
   a.download-link{
-    background:#CC342D url('https://archives.bulbagarden.net/media/upload/8/8e/Ani383OD.png','https://archives.bulbagarden.net/media/upload/d/d3/Box_XD_383.png','https://archives.bulbagarden.net/media/upload/7/7e/Ani383MS.png') no-repeat 8px center !important;
+    background:#CC342D url(https://archives.bulbagarden.net/media/upload/8/8e/Ani383OD.png) no-repeat 8px center !important;
     background-size: 25% !important;
     background-position-y: bottom !important;
   }
