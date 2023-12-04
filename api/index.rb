@@ -76,9 +76,21 @@ Handler = Proc.new do |req, res|
       res.body = rubystyle()
       next
     end
-
+    
+    if req_request_uri.include?('favicon') && req.header['Referer'] && req.header['Referer'].include?('sapphire')
+      res.header['location']='https://archives.bulbagarden.net/media/upload/thumb/e/ee/Menu_HOME_0382.png/40px-Menu_HOME_0382.png'
+      res.status='301'
+      next
+    end
+    
+    if req_request_uri.include?('favicon') && req.header['Referer'] && req.header['Referer'].include?('emerald')
+      res.header['location']='https://archives.bulbagarden.net/media/upload/thumb/6/6e/Menu_HOME_0384.png/40px-Menu_HOME_0384.png'
+      res.status='301'
+      next
+    end
+    
     if req_request_uri.include?('favicon')
-      res.header['location']=favicon
+      res.header['location']='https://archives.bulbagarden.net/media/upload/thumb/1/1e/Menu_HOME_0383.png/40px-Menu_HOME_0383.png'
       res.status='301'
       next
     end
