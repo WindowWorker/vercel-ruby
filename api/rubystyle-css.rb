@@ -49,6 +49,13 @@ html[window-location*="sapphire"] #header_content>a{
     background:#CC342D url(https://archives.bulbagarden.net/media/upload/c/c6/Ani382OD.png) no-repeat 8px center !important;
     background-size: 25% !important;
     background-position-y: bottom !important;
+    filter: hue-rotate(120deg);
+      background-color: #2D34CC !important;
+      border: 2px solid #161c9b !important;
+      -webkit-box-shadow: 0 2px 0 #161c9b !important;
+      -moz-box-shadow: 0 2px 0 #161c9b !important;
+      box-shadow: 0 2px 0 #161c9b !important;
+
   }
 
 }
