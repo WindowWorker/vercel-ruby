@@ -23,7 +23,10 @@ for(let i=0;i<prs_length;i++){try{
   prs[i].innerHTML='<code class="language-ruby">'+prs[i].innerHTML+'</code>';
   prs[i].setAttribute('class','language-ruby');
 }catch(e){await console.log(e); continue;}}
+if(document.querySelector('[class*="language-"]')){
 Prism.highlightAll();
+}
+
 });
 
 
