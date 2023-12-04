@@ -98,7 +98,7 @@ swapSapphireText(document.body);
 
 }
 
-}();
+
 
 
 
@@ -135,9 +135,12 @@ swapEmeraldText(document.body);
 
 }
 
+
+
+
+
+
 }();
-
-
 
 TEXT
 

@@ -12,7 +12,7 @@ if ENV['PATH'].include?('runner')
   repl = true;
 end
 
-
+favicon = 'https://archives.bulbagarden.net/media/upload/thumb/1/1e/Menu_HOME_0383.png/40px-Menu_HOME_0383.png'
 
 
 def flattenHeaders(headers)
@@ -74,6 +74,11 @@ Handler = Proc.new do |req, res|
     if req_request_uri.include?('rubystyle.css')
       res['Content-Type']='text/css;charset=UTF-8'
       res.body = rubystyle()
+      next
+    end
+
+    if req_request_uri.include?('favicon')
+      res['location']='favicon'
       next
     end
     
