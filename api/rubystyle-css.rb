@@ -1,3 +1,5 @@
+
+
 def rubystyle()
   
  return <<-TEXT
@@ -8,24 +10,29 @@ def rubystyle()
   background-size: 20% !important;
 }
 
- a.download-link{
-background:#CC342D url(https://archives.bulbagarden.net/media/upload/8/8e/Ani383OD.png) no-repeat 8px center !important;
-background-size: 25% !important;
-background-position-y: 120% !important;
-}
+@media screen and (min-width: 768px) {
 
+  a.download-link{
+    background:#CC342D url(https://archives.bulbagarden.net/media/upload/8/8e/Ani383OD.png) no-repeat 8px center !important;
+    background-size: 25% !important;
+    background-position-y: bottom !important;
+  }
+}
 html[window-location*="sapphire"]:not([framed]){
 filter:hue-rotate(-120deg);
 }
 
 
+@media screen and (min-width: 768px) {
 
+  html[window-location*="sapphire"] #header_content>a{
+    background:  url(https://archives.bulbagarden.net/media/upload/1/10/Spr_5b_382.png) 
+    no-repeat left 8px !important;
+    background-size: 25% !important;
+    background-position-y: bottom !important;
+    filter:hue-rotate(120deg);
+  }
 
-html[window-location*="sapphire"] #header_content>a{
-  background:  url(https://archives.bulbagarden.net/media/upload/1/10/Spr_5b_382.png) 
-  no-repeat left 8px !important;
-  background-size: 20% !important;
-  filter:hue-rotate(120deg);
 }
 
 html[window-location*="ruby-doc.com"] #header{

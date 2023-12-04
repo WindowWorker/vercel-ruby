@@ -12,6 +12,9 @@ ruby_html.setAttribute('user-agent' , navigator.userAgent);
 if (window!=window.top){
 ruby_html.setAttribute('framed','');
 }
+
+
+
 function swapSapphireText(el){
 
   if(!el){return;}
