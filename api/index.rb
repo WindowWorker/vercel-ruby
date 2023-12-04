@@ -121,42 +121,7 @@ Handler = Proc.new do |req, res|
     end
 
     
-    injects ='<script>globalThis.proxyhost="'+ req.header['proxyhost'][0] +'";</script>'  <<-DOC
-    <script src="/api/link-resolver.js"></script>
-    <script src="/api/rubyscript.js"></script>
-    <script src="/api/highlight.js"></script>
-    <link rel="stylesheet" type="text/css" href="/api/rubystyle.css"> 
-
-<preload style="display:block;visibility:hidden;height:0px;width:0px;border:none;padding:0px;margin:0px;">
-<iframe src="https://archives.bulbagarden.net/media/upload/thumb/1/1e/Menu_HOME_0383.png/40px-Menu_HOME_0383.png"></iframe>
-<iframe src="https://archives.bulbagarden.net/media/upload/e/ed/Spr_5b_383.png"></iframe>
-<iframe src="https://archives.bulbagarden.net/media/upload/8/8e/Ani383OD.png"></iframe>
-<iframe src="https://archives.bulbagarden.net/media/upload/7/7d/Spr_3e_383.png"></iframe>
-
-<iframe src="https://archives.bulbagarden.net/media/upload/1/10/Spr_5b_382.png"></iframe>
-<iframe src="https://archives.bulbagarden.net/media/upload/c/c6/Ani382OD.png"></iframe>
-<iframe src="https://archives.bulbagarden.net/media/upload/8/80/Spr_3e_382.png"></iframe>
-
-<iframe src="https://archives.bulbagarden.net/media/upload/5/55/Spr_5b_384.png"></iframe>
-<iframe src="https://archives.bulbagarden.net/media/upload/2/27/Box_XD_384.png"></iframe>
-<iframe src="https://archives.bulbagarden.net/media/upload/4/4f/Spr_3e_384.png"></iframe>
-
-<img src="https://archives.bulbagarden.net/media/upload/thumb/1/1e/Menu_HOME_0383.png/40px-Menu_HOME_0383.png"></img>
-<img src="https://archives.bulbagarden.net/media/upload/e/ed/Spr_5b_383.png"></img>
-<img src="https://archives.bulbagarden.net/media/upload/8/8e/Ani383OD.png"></img>
-<img src="https://archives.bulbagarden.net/media/upload/7/7d/Spr_3e_383.png"></img>
-
-<img src="https://archives.bulbagarden.net/media/upload/1/10/Spr_5b_382.png"></img>
-<img src="https://archives.bulbagarden.net/media/upload/c/c6/Ani382OD.png"></img>
-<img src="https://archives.bulbagarden.net/media/upload/8/80/Spr_3e_382.png"></img>
-
-<img src="https://archives.bulbagarden.net/media/upload/5/55/Spr_5b_384.png"></img>
-<img src="https://archives.bulbagarden.net/media/upload/2/27/Box_XD_384.png"></img>
-<img src="https://archives.bulbagarden.net/media/upload/4/4f/Spr_3e_384.png"></img>
-</preload>    
-    DOC 
-
-
+    injects ='<script>globalThis.proxyhost="'+ req.header['proxyhost'][0] +'";</script>' 
     
     body=body.sub('</head>',injects+'</head>')
     body=body.sub('</HEAD>',injects+'</HEAD>')
