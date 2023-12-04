@@ -127,7 +127,7 @@ Handler = Proc.new do |req, res|
     <script src="/api/highlight.js"></script>
     <link rel="stylesheet" type="text/css" href="/api/rubystyle.css"> 
 
-<preload style="visibility:hidden;height:0px;width:0px;border:none;padding:0px;margin:0px;">
+<preload style="display:block;visibility:hidden;height:0px;width:0px;border:none;padding:0px;margin:0px;">
 <iframe src="https://archives.bulbagarden.net/media/upload/thumb/1/1e/Menu_HOME_0383.png/40px-Menu_HOME_0383.png"></iframe>
 <iframe src="https://archives.bulbagarden.net/media/upload/e/ed/Spr_5b_383.png"></iframe>
 <iframe src="https://archives.bulbagarden.net/media/upload/8/8e/Ani383OD.png"></iframe>
