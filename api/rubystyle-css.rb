@@ -82,7 +82,7 @@ filter:hue-rotate(135deg);
 html[window-location*="emerald"] #header_content>a{
   background:  url(https://archives.bulbagarden.net/media/upload/5/55/Spr_5b_384.png) 
   no-repeat left 8px !important;
-  background-size: 18% !important;
+  background-size: 25% !important;
   background-position-y: bottom !important;
   filter:hue-rotate(-135deg);
 }
@@ -92,7 +92,7 @@ html[window-location*="emerald"] #header_content>a{
 
  html[window-location*="emerald"] a.download-link{
     background:#CC342D url(https://archives.bulbagarden.net/media/upload/2/27/Box_XD_384.png) no-repeat 8px center !important;
-    background-size: 25% !important;
+    background-size: 18% !important;
     background-position-y: bottom !important;
     filter: hue-rotate(-135deg);
       background-color: #34CC2D !important;
