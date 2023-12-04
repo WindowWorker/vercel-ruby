@@ -102,6 +102,43 @@ swapSapphireText(document.body);
 
 
 
+
+function swapEmeraldText(el){
+
+  if(!el){return;}
+  var n, a=[], walk=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
+  while(n=walk.nextNode()){
+  a.push(n);
+    let ntext=n.textContent;
+
+  ntext=ntext.replace(/ruby/gi,'Emerald');
+
+  if(ntext!=n.textContent){
+    n.textContent=ntext;
+  }
+
+  };
+  if(document.title.toLowerCase().includes('ruby')){
+    document.title=document.title
+      .replace(/ruby/gi,'Emerald')
+     }
+  return a;
+  }
+
+
+if(window.location.href.toLowerCase().includes('emerald')){
+setInterval(function(){
+
+swapEmeraldText(document.body);
+
+},100);
+
+}
+
+}();
+
+
+
 TEXT
 
 end
