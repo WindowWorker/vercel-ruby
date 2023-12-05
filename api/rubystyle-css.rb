@@ -130,5 +130,7 @@ color: #CC342D !important;
 
 .carbonad,[data-attributes*="carbon"]{display:none !important;}
 
+[comment='highlight']{display:none;}
+
 TEXT
 end
