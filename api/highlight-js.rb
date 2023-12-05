@@ -49,10 +49,14 @@ for(let i=0;i<notprs_length;i++){try{
   notprs[i].outerHTML='<pre class="language-ruby">'+notprs[i].outerHTML+'</pre>';
 }catch(e){await console.log(e); continue;}}
 
-let aprs=Array.from(document.querySelectorAll('pre[class*="language-"]:not(:has(code))'));
+let aprs=Array.from(document.querySelectorAll('pre[class*="language-"]:not(:has(code,.token))'));
 const aprs_length=aprs.length;
 for(let i=0;i<aprs_length;i++){try{
+if(aprs[i].innerHTML.toString().includes('#highlight#')){
+aprs[i].innerHTML='<code class="language-ruby">'+aprs[i].innerHTML+'</code>';
+}else{
   aprs[i].innerHTML='<code class="language-ruby">\\n#highlight#\\n'+aprs[i].innerHTML+'</code>';
+  }
 }catch(e){await console.log(e); continue;}}
 
 if(document.querySelector('[class*="language-"]')){
