@@ -134,7 +134,7 @@ color: #CC342D !important;
 
 [comment="highlight"]{display:none;}
 
-table,.language-ruby{
+table,table *,.language-ruby{
 border-radius: 1vmin;
 }
 
