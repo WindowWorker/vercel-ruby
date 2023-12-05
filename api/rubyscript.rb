@@ -5,7 +5,20 @@ return <<-TEXT
 
 void function rubyscript(){
 
+globalThis.await=(promise)=>{console.log("Attempting to await promise in synchronous context ",promise);return promise;};
 
+globalThis.yield=(next)=>{console.log("Attempting to yield next outside of a generator ",next);return next;};
+
+
+globalThis.queryApplyAll=async function(query,func){
+
+let elems=Array.from(document.querySelectorAll(query));
+const elems_length=elems.length;
+for(let i=0;i<elems_length;i++){try{
+  func(elems[i]);
+}catch(e){await("queryApplyAll");console.log(e); continue;}}
+
+}
 
 Element.prototype.updateAttribute=function(attr,val){
 const el = this;
@@ -134,7 +147,6 @@ swapEmeraldText(document.body);
 },100);
 
 }
-
 
 
 

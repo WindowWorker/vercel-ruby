@@ -35,6 +35,9 @@ if(!(document.querySelector('link[href="https://cdnjs.cloudflare.com/ajax/libs/p
 await import('https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js');
 await import('https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-ruby.min.js');
 
+
+queryApplyAll('code a',(a)=>{a.updateAttribute('class','token');});
+
 let prs=Array.from(document.querySelectorAll('pre:not([class],:has(a))'));
 const prs_length=prs.length;
 for(let i=0;i<prs_length;i++){try{
@@ -59,7 +62,7 @@ aprs[i].innerHTML='<code class="language-ruby">'+aprs[i].innerHTML+'</code>';
   }
 }catch(e){await console.log(e); continue;}}
 
-if(document.querySelector('[class*="language-"]')){
+if(document.querySelector('[class*="language-"]:not(:has(.token,a))')){
 highlighter();
 }
 

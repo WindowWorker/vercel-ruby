@@ -15,6 +15,7 @@ def rubystyle()
   a.download-link{
     background:#CC342D url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/8/8e/Ani383OD.png) no-repeat 8px center !important;
     background-size: 25% !important;
+    background-position-x: left !important;
     background-position-y: bottom !important;
   }
   
