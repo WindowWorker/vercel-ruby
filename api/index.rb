@@ -79,6 +79,8 @@ Handler = Proc.new do |req, res|
       res.body = rubystyle()
       next
     end
+
+    puts req['Workerhost']
     ref = nil
     if req['Referer']
       ref="#{req['Referer']}".encode("ascii", "utf-8", replace: "/")
