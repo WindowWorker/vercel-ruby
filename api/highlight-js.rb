@@ -71,7 +71,7 @@ declare(async ()=>{
 
 let comments=Array.from(document.querySelectorAll(.comment:not([comment="highlight"])));
 const comments_length;
-for(let i=0i<comments_length;i++){try{
+for(let i=0;i<comments_length;i++){try{
 
 if(comments[i].innerHTML.toString().trim()=='#highlight#'){
   comments[i].updateAttribute('comment','highlight');
