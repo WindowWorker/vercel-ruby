@@ -86,13 +86,13 @@ Handler = Proc.new do |req, res|
       ref="#{req['referer']}".encode("ascii", "utf-8", replace: "/")
     #puts "referer="+ ref
     end
-    if (req_request_uri.include?('favicon') || req_request_uri.include?('apple-touch-icon')) && ref && ref.include?('sapphire')
+    if (req_request_uri.include?('favicon') || req_request_uri.include?('apple-touch-icon')) && ((ref && ref.include?('sapphire'))||(req['workerhost'] && req['workerhost'].include?('sapphire')))
       res.header['location']='https://archives.bulbagarden.net/media/upload/thumb/e/ee/Menu_HOME_0382.png/40px-Menu_HOME_0382.png'
       res.status='301'
       next
     end
     
-    if (req_request_uri.include?('favicon') || req_request_uri.include?('apple-touch-icon')) && ref && ref.include?('emerald')
+    if (req_request_uri.include?('favicon') || req_request_uri.include?('apple-touch-icon')) && ((ref && ref.include?('emerald'))||(req['workerhost'] && req['workerhost'].include?('emerald')))
       res.header['location']='https://archives.bulbagarden.net/media/upload/thumb/6/6e/Menu_HOME_0384.png/40px-Menu_HOME_0384.png'
       res.status='301'
       next
