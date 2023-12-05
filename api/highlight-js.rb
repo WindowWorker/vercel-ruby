@@ -8,7 +8,7 @@ def highlight()
 
 
 globalThis.highlighter=async function(){
-  if(document.querySelector('[class*="language-"]:not(:has(.token))')){
+  if(document.querySelector('[class*="language-"]:not(:has(.token,a))')){
   try{
     if(globalThis.Prism){
       let hs=Array.from(document.querySelectorAll('[class*="language-"]:not(:has(.token,a))'));
@@ -16,7 +16,7 @@ globalThis.highlighter=async function(){
       for(let i=0 ; i<hs_length ; i++){try{
         await Prism.highlightElement?.(hs[i]);
       }catch(e){await("highlight");continue;}}
-      await Prism.highlightAll();
+      //await Prism.highlightAll();
       }
       
     }catch(e){await(console.log(e));}
