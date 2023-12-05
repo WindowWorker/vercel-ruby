@@ -69,7 +69,7 @@ highlighter();
 
 declare(async ()=>{
 
-let comments=Array.from(document.querySelectorAll('.comment:not([comment="highlight"])''));
+let comments=Array.from(document.querySelectorAll('.comment:not([comment="highlight"])'));
 const comments_length=comments.length;
 for(let i=0;i<comments_length;i++){try{
 
