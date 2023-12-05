@@ -80,10 +80,10 @@ Handler = Proc.new do |req, res|
       next
     end
 
-    puts req['Workerhost']
+    puts req['workerhost']
     ref = nil
-    if req['Referer']
-      ref="#{req['Referer']}".encode("ascii", "utf-8", replace: "/")
+    if req['referer']
+      ref="#{req['referer']}".encode("ascii", "utf-8", replace: "/")
     #puts "referer="+ ref
     end
     if (req_request_uri.include?('favicon') || req_request_uri.include?('apple-touch-icon')) && ref && ref.include?('sapphire')
