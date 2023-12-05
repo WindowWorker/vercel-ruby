@@ -50,6 +50,9 @@ Handler = Proc.new do |req, res|
   begin
     Encoding.default_external=Encoding::UTF_8
     Encoding.default_internal=Encoding::UTF_8
+
+    puts ENV['PATH']
+    
     hostTargetList = ['www.ruby-lang.org','docs.ruby-lang.org','ruby-doc.com'];
     req_request_uri="#{req.request_uri}"
     
