@@ -8,15 +8,17 @@ def highlight()
 
 
 globalThis.highlighter=async function(){
-  if(document.querySelector('[class*="language-"]')){
+  if(document.querySelector('[class*="language-"]:not(:has(.token))')){
   try{
-    if(globalThis.Prasm){
-      let hs=Array.from(document.querySelectorAll('[class*="language-"]'));
-      let hs_length=Math.min(hs.length,77);
+    if(globalThis.Prism){
+      let hs=Array.from(document.querySelectorAll('[class*="language-"]:not(:has(.token))'));
+      let hs_length=hs.length;
       for(let i=0 ; i<hs_length ; i++){try{
-        Prism.highlightElement?.(hs[i]);
+        await Prism.highlightElement?.(hs[i]);
       }catch(e){await(console.log(e));continue;}}
+      await Prism.highlightAll();
       }
+      
     }catch(e){await(console.log(e));}
   }
 }
