@@ -48,6 +48,7 @@ end
 
 Handler = Proc.new do |req, res|
   begin
+    #puts req.inspect
     Encoding.default_external=Encoding::UTF_8
     Encoding.default_internal=Encoding::UTF_8
 
@@ -139,8 +140,15 @@ Handler = Proc.new do |req, res|
     if(response.header['content-encoding'])&&(response.header['content-encoding']=='gzip')
       body = Zlib.gunzip(body)
     end
+      
+    begin
+      body.encode('UTF-8')
+    rescue Exception => error
+      body = body.unpack('C*').inspect
+      res['encoding-shim']='UTF-8'
+    end
 
-    
+      
     injects ='<script>globalThis.proxyhost="'+ req.header['proxyhost'][0] +'";</script>' + <<-TEXT
     <script src="/api/link-resolver.js"></script>
     <script src="/api/rubyscript.js"></script>
@@ -159,7 +167,7 @@ Handler = Proc.new do |req, res|
 
   rescue Exception => error
    body=error.inspect+error.message
-    res['Content-Type']='text/html'
+   res['Content-Type']='text/html'
    res['Content-Length'] = body.length
    res.body=body
   end
