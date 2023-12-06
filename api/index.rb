@@ -79,10 +79,13 @@ Handler = Proc.new do |req, res|
       next
     end
 
+
+    
     ref = nil
     if req['referer']
       ref="#{req['referer']}".encode("ascii", "utf-8", replace: "/")
     end
+
     if (req_request_uri.include?('favicon') || req_request_uri.include?('apple-touch-icon')) && ((ref && ref.include?('sapphire'))||(req['workerhost'] && req['workerhost'].include?('sapphire')))
       res.header['location']='https://archives.bulbagarden.net/media/upload/thumb/e/ee/Menu_HOME_0382.png/40px-Menu_HOME_0382.png'
       res.status='301'
