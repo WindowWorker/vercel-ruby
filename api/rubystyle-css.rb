@@ -130,6 +130,8 @@ color: #CC342D !important;
 text-shadow:1px 1px 2px white, -1px -1px 2px white, -1px 1px 2px white, 1px -1px 2px white;
 }
 
+.menu_box>a{text-shadow:none;}
+
 .carbonad,[data-attributes*="carbon"]{display:none !important;}
 
 [comment="highlight"]{display:none;}
