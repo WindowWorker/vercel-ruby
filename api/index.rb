@@ -91,6 +91,12 @@ Handler = Proc.new do |req, res|
       next
     end
 
+    if req_request_uri.include?('reflect=debug')
+      res['Content-Type']='text/html;charset=UTF-8'
+      res.body = ('<pre><code>'+req.inspect+'</code></pre><script src="/api/rubyscript.js"></script><script src="/api/highlight.js"></script>').gsub(',',",\n<br>")
+      next
+    end
+
     
     ref = nil
     if req['referer']
