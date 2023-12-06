@@ -51,8 +51,6 @@ Handler = Proc.new do |req, res|
     #puts req.inspect
     Encoding.default_external=Encoding::UTF_8
     Encoding.default_internal=Encoding::UTF_8
-
-    puts ENV['PATH']
     
     hostTargetList = ['www.ruby-lang.org','docs.ruby-lang.org','ruby-doc.com'];
     req_request_uri="#{req.request_uri}"
@@ -164,6 +162,12 @@ Handler = Proc.new do |req, res|
     body=body.sub('</HEAD>',injects+'</HEAD>')
     body=body.sub('<head>','<head>'+injects)
     body=body.sub('<HEAD>','<HEAD>'+injects)
+    response.header.each do |attr_name, attr_value|
+      if (attr_name.downcase == 'content-encoding') && (attr_value.downcase.include?('gzip'))
+        next
+      end
+      res[attr_name] = attr_value
+    end
     res['Content-Length'] = body.length
     res.body=body
 
