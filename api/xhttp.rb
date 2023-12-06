@@ -80,7 +80,7 @@ def fetch(req)
   if req.request_method[0]=="P"
     response=Net::HTTP.post(newURI, req.body(),flattenReqHeaders(req))
   else
-    response=Net::HTTP.get_response(newURI,flattenReqHeaders(req),69)
+    response=Net::HTTP.get_response(newURI,flattenReqHeaders(req),443)
   end
   return response
     rescue Exception => error
