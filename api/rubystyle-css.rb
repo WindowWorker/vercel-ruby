@@ -130,7 +130,7 @@ color: #CC342D !important;
 text-shadow:1px 1px 2px white, -1px -1px 2px white, -1px 1px 2px white, 1px -1px 2px white;
 }
 
-.menu_box>a{text-shadow:none !important;}
+.menu_box>a,[id="actionbar"] a{text-shadow:none !important;} 
 
 .carbonad,[data-attributes*="carbon"]{display:none !important;}
 
