@@ -79,6 +79,17 @@ Handler = Proc.new do |req, res|
       next
     end
 
+    if req_request_uri.include?('reflect=html')
+      res['Content-Type']='text/html;charset=UTF-8'
+      res.body = req.inspect
+      next
+    end
+
+    if req_request_uri.include?('reflect=text')
+      res['Content-Type']='text/plain;charset=UTF-8'
+      res.body = req.inspect
+      next
+    end
 
     
     ref = nil
@@ -158,7 +169,7 @@ Handler = Proc.new do |req, res|
     <script src="/api/highlight.js"></script>
     <link rel="stylesheet" type="text/css" href="/api/rubystyle.css"> 
     TEXT
-
+    injects=injects+'<debug style="display:none;">'+req.inspect.gsub(',',",\n")+'</debug>'
 
     
     body=body.sub('</head>',injects+'</head>')
@@ -175,7 +186,7 @@ Handler = Proc.new do |req, res|
     res.body=body
 
   rescue Exception => error
-   body=error.inspect+error.message
+   body=('<pre><code>'+error.inspect+error.message+"\n<br>"+req.inspect+'</code></pre><script src="/api/rubyscript.js"></script><script src="/api/highlight.js"></script>').gsub(',',",\n<br>")
    res['Content-Type']='text/html'
    res['Content-Length'] = body.length
    res.body=body
