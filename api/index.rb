@@ -140,13 +140,12 @@ Handler = Proc.new do |req, res|
     if(response.header['content-encoding'])&&(response.header['content-encoding']=='gzip')
       body = Zlib.gunzip(body)
     end
-
+    
     if (!(response.header['content-type'].include?('text')))
       begin
         text=body
         text.encode('UTF-8')
       rescue Exception => error
-        puts error.message
         body = body.unpack('C*').inspect
         res['encoding-shim']='UTF-8'
       end
