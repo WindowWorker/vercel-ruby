@@ -6,6 +6,7 @@ def highlight()
 
  return <<-TEXT
 
+globalThis.highlightLang='ruby';
 
 globalThis.highlighter=async function(){
   if(document.querySelector('[class*="language-"]:not(:has(.token,a))')){

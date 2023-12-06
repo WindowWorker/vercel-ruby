@@ -158,7 +158,7 @@ function swapRuaText(el){
   a.push(n);
     let ntext=n.textContent;
 
-  ntext=ntext.replace(/ruby/gi,'Rua');
+  ntext=ntext.replace(/ruby/gi,'Rua').replaceAll('def','function');
 
   if(ntext!=n.textContent){
     n.textContent=ntext;
