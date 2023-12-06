@@ -27,7 +27,9 @@ background:url(https://api.typescripts.org/corsFetch/https://archives.bulbagarde
 
 
 
-
+html[window-location*="rua"]:not([framed]){
+filter:hue-rotate(-120deg) brightness(0.8);
+}
 
 
 

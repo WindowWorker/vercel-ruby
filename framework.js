@@ -24,10 +24,14 @@ el.setAttribute(attr,val);
 }
 }
 
-if(!(globalThis.declarations)){globalThis.declarations=[];}
+if(!(globalThis.declarations)){globalThis.declarations=[];globalThis.declarationStrings=[];}
 
 globalThis.declare=function(func){
-    globalThis.declarations.push(func);
+    let funcString=func.toString();
+    if(!(declarationStrings.includes(funcString))){
+     globalThis.declarations.push(func);
+     globalThis.declarationStrings.push(funcString);
+    }
 };
 
 globalThis.declareEvaluator=async function(){
@@ -70,3 +74,103 @@ declare(()=>{
   }
 
 });
+
+
+
+globalThis.fetchResponseText=async function(){
+    let res = await fetch(...arguments);
+    res.fullBody = await res.text();
+    return res;
+}
+ 
+globalThis.fetchText=async function(){
+    return (await fetch(...arguments)).text();
+}
+
+globalThi=async function(){
+    let res = await fetch(...arguments);
+    res.fullBody = await res.arrayBuffer();
+    return res;
+}
+ 
+globalThis.fetchArrayBuffer=async function(){
+    return (await fetch(...arguments)).arrayBuffer();
+}
+
+globalThis.Q=U=>{try{return U();}catch(e){return undefined;}};
+globalThis.AQ=async (U)=>{try{return await(U());}catch(e){return undefined;}};
+
+
+globalThis.console.lag=async function(){
+  return console.log(...arguments);
+}
+
+
+globalThis.ifTry=(bool,then,elseThen)=>{
+    if(bool){
+        try{
+            if((typeof bool)=='function'){
+                if(bool()){
+                    return then();
+                }else{
+                    return elseThen(e);
+                }
+            }else{
+                return then();
+            }
+        }catch(e){
+            if(elseThen){
+                return elseThen(e);
+            }else{
+                return;
+            }
+        }
+    }else{
+        if(elseThen){
+            return elseThen(e);
+        }else{
+            return;
+        }
+    }
+}
+
+
+
+/** The ever useful sleep function */
+globalThis.sleep = (ms)=>{
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
+/** asymc function object */
+globalThis.AsyncFunction = async function () {}.letructor;
+
+
+
+/** extract a value from json 
+using string manipulation.
+Great for malformed json.
+*/
+globalThis.JSON.extract=function(json,str){
+  if(typeof json != 'string'){json=JSON.stringify(json);}
+  return json.split(str)?.[1]?.split?.('"')?.[2];
+}
+
+
+/** change the character of a string at a specific index */
+globalThis.String.prototype.setCharAt=
+  function(index,char){
+    let str=this.split('');
+    str[index]=char;
+    return str.join('');
+  }
+
+
+String.prototype.includesAny=function(arr){
+  let arr_length=arr.length;
+  for(let i=0;i<arr_length;i++){
+      if(this.includes(arr[i])){return true;}
+  }
+return false;
+}

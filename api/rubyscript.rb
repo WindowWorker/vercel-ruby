@@ -31,10 +31,14 @@ el.setAttribute(attr,val);
 }
 }
 
-if(!(globalThis.declarations)){globalThis.declarations=[];}
+if(!(globalThis.declarations)){globalThis.declarations=[];globalThis.declarationStrings=[];}
 
 globalThis.declare=function(func){
-    globalThis.declarations.push(func);
+    let funcString=func.toString();
+    if(!(declarationStrings.includes(funcString))){
+     globalThis.declarations.push(func);
+     globalThis.declarationStrings.push(funcString);
+    }
 };
 
 globalThis.declareEvaluator=async function(){
