@@ -140,14 +140,17 @@ Handler = Proc.new do |req, res|
     if(response.header['content-encoding'])&&(response.header['content-encoding']=='gzip')
       body = Zlib.gunzip(body)
     end
-      
-    begin
-      body.encode('UTF-8')
-    rescue Exception => error
-      body = body.unpack('C*').inspect
-      res['encoding-shim']='UTF-8'
-    end
 
+    if (!(response.header['content-type'].include?('text')))
+      begin
+        text=body
+        text.encode('UTF-8')
+      rescue Exception => error
+        puts error.message
+        body = body.unpack('C*').inspect
+        res['encoding-shim']='UTF-8'
+      end
+    end
       
     injects ='<script>globalThis.proxyhost="'+ req.header['proxyhost'][0] +'";</script>' + <<-TEXT
     <script src="/api/link-resolver.js"></script>
