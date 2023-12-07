@@ -116,7 +116,7 @@ Handler = Proc.new do |req, res|
     end
 
     if (req_request_uri.include?('favicon') || req_request_uri.include?('apple-touch-icon')) && ((ref && ref.include?('rua.'))||(req['workerhost'] && req['workerhost'].include?('rua.')))
-      res.header['location']='https://archives.bulbagarden.net/media/upload/4/43/Spr_2s_112.png'
+      res.header['location']='https://archives.bulbagarden.net/media/upload/1/1b/112_II_OD.png'
       res.status='301'
       next
     end
