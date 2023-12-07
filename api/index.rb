@@ -114,6 +114,14 @@ Handler = Proc.new do |req, res|
       res.status='301'
       next
     end
+
+    if (req_request_uri.include?('favicon') || req_request_uri.include?('apple-touch-icon')) && ((ref && ref.include?('rua.'))||(req['workerhost'] && req['workerhost'].include?('rua.')))
+      res.header['location']='https://archives.bulbagarden.net/media/upload/4/43/Spr_2s_112.png'
+      res.status='301'
+      next
+    end
+
+    
     
     if req_request_uri.include?('favicon') || req_request_uri.include?('apple-touch-icon')
       res.header['location']='https://archives.bulbagarden.net/media/upload/thumb/1/1e/Menu_HOME_0383.png/40px-Menu_HOME_0383.png'
