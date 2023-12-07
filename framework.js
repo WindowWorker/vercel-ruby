@@ -144,7 +144,7 @@ globalThis.sleep = (ms)=>{
 }
 
 /** asymc function object */
-globalThis.AsyncFunction = async function () {}.letructor;
+globalThis.AsyncFunction = async function () {}.constructor;
 
 
 
