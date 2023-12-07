@@ -168,7 +168,12 @@ Handler = Proc.new do |req, res|
         res['encoding-shim']='UTF-8'
       end
     end
-      
+
+    workerhost = "";
+    if(req['workerhost'])
+      workerhost=" "+req['workerhost']+" "
+    end
+    
     injects ='<script>globalThis.proxyhost="'+ req.header['proxyhost'][0] +'";</script>' + <<-TEXT
     <script src="/api/link-resolver.js"></script>
     <script src="/api/rubyscript.js"></script>
@@ -177,7 +182,10 @@ Handler = Proc.new do |req, res|
     TEXT
     injects=injects+'<debug style="display:none;">'+req.inspect.gsub(',',",\n")+'</debug>'
 
-    
+
+body=body.sub('<html','<html'+workerhost)
+
+    body=body.sub('<HTML','<HTML'+workerhost)
     body=body.sub('</head>',injects+'</head>')
     body=body.sub('</HEAD>',injects+'</HEAD>')
     body=body.sub('<head>','<head>'+injects)
