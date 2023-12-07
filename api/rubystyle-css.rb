@@ -53,7 +53,7 @@ html[workerhost*="sapphire"] #header_content>a{
 @media screen and (min-width: 768px) {
 
  html[window-location*="sapphire"] a.download-link,
- html[workerhost*="sapphire"] a.download-link{{
+ html[workerhost*="sapphire"] a.download-link{
     background:#CC342D url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/c/c6/Ani382OD.png) no-repeat 8px center !important;
 background-size: 20% !important;
     background-position-x: left !important;
@@ -70,14 +70,14 @@ background-size: 20% !important;
 }
 
 html[window-location*="sapphire"][window-location*="ruby-doc.com"] #header,
-html[workerhost*="sapphire"][window-location*="ruby-doc.com"] #header{{
+html[workerhost*="sapphire"][window-location*="ruby-doc.com"] #header{
 background:url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/8/80/Spr_3e_382.png) 850px 0 no-repeat !important;
 filter: hue-rotate(120deg);
 
 }
 
 html[window-location*="sapphire"][window-location*="ruby-doc.com"] #header a,
-html[workerhost*="sapphire"][window-location*="ruby-doc.com"] #header a{{
+html[workerhost*="sapphire"][window-location*="ruby-doc.com"] #header a{
   filter:hue-rotate(-120deg);
   color:#CC342D !important;
 }
