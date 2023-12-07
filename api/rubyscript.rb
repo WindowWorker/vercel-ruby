@@ -50,6 +50,11 @@ def rubyscript
     #{'    '}
     };
 
+
+    globalThis.declareEvaluator();
+    document.addEventListener("DOMContentLoaded", (event) => {globalThis.declareEvaluator();});
+    document.addEventListener("readystatechange", (event) => {globalThis.declareEvaluator();});
+    window.addEventListener("load", (event) => {globalThis.declareEvaluator();});
     setInterval(function(){globalThis.declareEvaluator();},100);
 
 
