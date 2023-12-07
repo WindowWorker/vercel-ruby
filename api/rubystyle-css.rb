@@ -35,11 +35,13 @@ filter:hue-rotate(-100deg) brightness(0.8) saturate(2) contrast(2)
 
 
 
-html[window-location*="sapphire"]:not([framed]){
+html[window-location*="sapphire"]:not([framed]),
+html[workerhost*="sapphire"]:not([framed]){
 filter:hue-rotate(-120deg);
 }
 
-html[window-location*="sapphire"] #header_content>a{
+html[window-location*="sapphire"] #header_content>a,
+html[workerhost*="sapphire"] #header_content>a{
   background:  url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/1/10/Spr_5b_382.png) 
   no-repeat left 8px !important;
   background-size: 25% !important;
@@ -50,7 +52,8 @@ html[window-location*="sapphire"] #header_content>a{
 
 @media screen and (min-width: 768px) {
 
- html[window-location*="sapphire"] a.download-link{
+ html[window-location*="sapphire"] a.download-link,
+ html[workerhost*="sapphire"] a.download-link{{
     background:#CC342D url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/c/c6/Ani382OD.png) no-repeat 8px center !important;
 background-size: 20% !important;
     background-position-x: left !important;
@@ -66,13 +69,15 @@ background-size: 20% !important;
 
 }
 
-html[window-location*="sapphire"][window-location*="ruby-doc.com"] #header{
+html[window-location*="sapphire"][window-location*="ruby-doc.com"] #header,
+html[workerhost*="sapphire"][window-location*="ruby-doc.com"] #header{{
 background:url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/8/80/Spr_3e_382.png) 850px 0 no-repeat !important;
 filter: hue-rotate(120deg);
 
 }
 
-html[window-location*="sapphire"][window-location*="ruby-doc.com"] #header a{
+html[window-location*="sapphire"][window-location*="ruby-doc.com"] #header a,
+html[workerhost*="sapphire"][window-location*="ruby-doc.com"] #header a{{
   filter:hue-rotate(-120deg);
   color:#CC342D !important;
 }
@@ -81,11 +86,13 @@ html[window-location*="sapphire"][window-location*="ruby-doc.com"] #header a{
 
 
 
-html[window-location*="emerald"]:not([framed]){
+html[window-location*="emerald"]:not([framed]),
+html[workerhost*="emerald"]:not([framed]){
 filter:hue-rotate(135deg);
 }
 
-html[window-location*="emerald"] #header_content>a{
+html[window-location*="emerald"] #header_content>a,
+html[workerhost*="emerald"] #header_content>a{
   background:  url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/5/55/Spr_5b_384.png) 
   no-repeat left 8px !important;
   background-size: 25% !important;
@@ -96,7 +103,8 @@ html[window-location*="emerald"] #header_content>a{
 
 @media screen and (min-width: 768px) {
 
- html[window-location*="emerald"] a.download-link{
+ html[window-location*="emerald"] a.download-link,
+ html[workerhost*="emerald"] a.download-link{
     background:#CC342D url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/2/27/Box_XD_384.png) no-repeat 8px center !important;
     background-size: 18% !important;
     background-position-y: bottom !important;
@@ -111,11 +119,14 @@ html[window-location*="emerald"] #header_content>a{
 
 }
 
-html[window-location*="emerald"][window-location*="ruby-doc.com"] #header{
+html[window-location*="emerald"][window-location*="ruby-doc.com"] #header,
+html[workerhost*="emerald"][window-location*="ruby-doc.com"] #header{
   background:url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/4/4f/Spr_3e_384.png) 850px 0 no-repeat !important;
   filter:hue-rotate(-135deg)
 }
-html[window-location*="emerald"][window-location*="ruby-doc.com"] #header a{
+
+html[window-location*="emerald"][window-location*="ruby-doc.com"] #header a,
+html[workerhost*="emerald"][window-location*="ruby-doc.com"] #header a{
   filter:hue-rotate(135deg);
   color:#34CC2D !important;
 }

@@ -179,7 +179,7 @@ Handler = Proc.new do |req, res|
 
     workerhost = "";
     if(req['workerhost'])
-      workerhost=" "+req['workerhost']+" "
+      workerhost=' workerhost="'+req['workerhost']+'" '
     end
     
     injects ='<script>globalThis.proxyhost="'+ req.header['proxyhost'][0] +'";</script>' + <<-TEXT
