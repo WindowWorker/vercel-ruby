@@ -1,8 +1,28 @@
 
-
+#https://archives.bulbagarden.net/media/upload/4/43/Spr_2s_112.png
 def rubystyle()
   
  return <<-TEXT
+
+ html{cursor: url(https://archives.bulbagarden.net/media/upload/0/0c/383MS6.png), auto;}
+
+ html[window-location*="sapphire"],
+ html[workerhost*="sapphire"]{
+
+ 
+ }
+
+ html[window-location*="emerald"],
+ html[workerhost*="emerald"]{
+
+
+ }
+
+  html[window-location*="rua"],
+  html[workerhost*="rua"]{
+cursor: url(https://archives.bulbagarden.net/media/upload/4/43/Spr_2s_112.png), auto;}
+
+  }
  
 #header_content>a{
   background:  url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/e/ed/Spr_5b_383.png) 
