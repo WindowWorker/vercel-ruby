@@ -1,5 +1,5 @@
 
-#https://archives.bulbagarden.net/media/upload/4/43/Spr_2s_112.png
+
 def rubystyle()
   
  return <<-TEXT
@@ -8,13 +8,13 @@ def rubystyle()
 
  html[window-location*="sapphire"],
  html[workerhost*="sapphire"]{
-url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/9/95/382MS6.png), auto;
+cursor:url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/9/95/382MS6.png), auto;
  
  }
 
  html[window-location*="emerald"],
  html[workerhost*="emerald"]{
-url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/d/d0/384MS6.png), auto;
+cursor:url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/d/d0/384MS6.png), auto;
 
  }
 
