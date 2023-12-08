@@ -20,7 +20,7 @@ cursor:url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.ne
 
   html[window-location*="rua"],
   html[workerhost*="rua"]{
-cursor: url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/1/1b/112_II_OD.png), auto;}
+cursor: url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/1/1b/112_II_OD.png), auto;
 
   }
  
