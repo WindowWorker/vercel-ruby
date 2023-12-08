@@ -4,23 +4,23 @@ def rubystyle()
   
  return <<-TEXT
 
- html{cursor: url(https://archives.bulbagarden.net/media/upload/0/0c/383MS6.png), auto;}
+ html{cursor: url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/0/0c/383MS6.png), auto;}
 
  html[window-location*="sapphire"],
  html[workerhost*="sapphire"]{
-
+url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/9/95/382MS6.png), auto;
  
  }
 
  html[window-location*="emerald"],
  html[workerhost*="emerald"]{
-
+url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/d/d0/384MS6.png), auto;
 
  }
 
   html[window-location*="rua"],
   html[workerhost*="rua"]{
-cursor: url(https://archives.bulbagarden.net/media/upload/4/43/Spr_2s_112.png), auto;}
+cursor: url(https://api.typescripts.org/corsFetch/https://archives.bulbagarden.net/media/upload/4/43/Spr_2s_112.png), auto;}
 
   }
  
