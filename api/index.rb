@@ -209,7 +209,7 @@ body=body.sub('<html','<html'+workerhost)
 
   rescue Exception => error
    body=('<pre><code>'+error.inspect+error.message+"\n<br>"+req.inspect+'</code></pre><script src="/api/rubyscript.js"></script><script src="/api/highlight.js"></script>').gsub(',',",\n<br>")
-   res['Content-Type']='text/html'
+   res['Content-Type']='text/html;charset=UTF-8'
    res['Content-Length'] = body.length
    res.body=body
   end
