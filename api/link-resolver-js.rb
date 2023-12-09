@@ -3,6 +3,9 @@
 def link_resolver()
   
   return <<-TEXT
+
+if(document.title=='404: Not Found'){location.reload();}
+  
   if(!globalThis.hostTargetList){
   globalThis.hostTargetList = ['www.ruby-lang.org','docs.ruby-lang.org','ruby-doc.org','ruby-doc.com','www.ruby-doc.org','www.ruby-doc.com'];
 
