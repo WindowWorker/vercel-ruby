@@ -148,7 +148,7 @@ Handler = Proc.new do |req, res|
     req.header['proxyhost']=[hostname]
     
     response=fetch(req)
-  if response.code.to_i > 299
+  comment =  <<-TEXT if response.code.to_i > 299
       originhost = req.header['proxyhost'][0]
       for host in hostTargetList do
         if host == originhost
@@ -164,7 +164,7 @@ Handler = Proc.new do |req, res|
         end
       end
     end
-
+TEXT
   
     res.status=response.code
     res['Content-Type'] = response.header['content-type']
