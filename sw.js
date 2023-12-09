@@ -343,14 +343,14 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
                 return res;
               }
 
-              res = await cascadeMatchesTier2(request);
+              /*res = await cascadeMatchesTier2(request);*/
               respondWithResponse = res;
               return res;
 
 
             } catch (e) {
 
-              res = await cascadeMatchesTier2(request);
+              /*res = await cascadeMatchesTier2(request);*/
               respondWithResponse = res;
               return res;
 
