@@ -199,6 +199,7 @@ body=body.sub('<html','<html'+workerhost)
     body=body.sub('</HEAD>',injects+'</HEAD>')
     body=body.sub('<head>','<head>'+injects)
     body=body.sub('<HEAD>','<HEAD>'+injects)
+    body=body.sub('<title>404: Not Found</title>','<script>location.reload();</script>')
     #body=body.sub('</html>','</html>'+'<debug style="display:none;">'+req.inspect.gsub(',',",\n")+'</debug>')
     response.header.each do |attr_name, attr_value|
       if (attr_name.downcase == 'content-encoding') && (attr_value.downcase.include?('gzip'))
