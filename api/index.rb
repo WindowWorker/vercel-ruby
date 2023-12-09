@@ -130,12 +130,21 @@ Handler = Proc.new do |req, res|
     end
     
     hostname = "www.ruby-lang.org"
+
+    if req.header['referer']&&req.header['referer'][0].include?('hostname=')
+      hostnamep=req.header['referer'][0].split('hostname=')[1].split('&')[0]
+      if hostnamep && (hostnamep != 'undefined')
+        hostname = hostnamep
+      end
+    end
+    
     if req_request_uri.include?('hostname=')
       hostnamep=req_request_uri.split('hostname=')[1].split('&')[0]
       if hostnamep && (hostnamep != 'undefined')
         hostname = hostnamep
       end
     end
+    
     req.header['proxyhost']=[hostname]
     
     response=fetch(req)
