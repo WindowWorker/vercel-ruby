@@ -335,7 +335,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
               res = await fetch(request);
 
-              if (res) {
+              if ((res)&&(res.status<300)) {
 
                 /* Save a copy of it in cache */
                 await cacheResponse(request, res);
