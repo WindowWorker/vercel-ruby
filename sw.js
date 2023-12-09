@@ -334,7 +334,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
             try {
 
               res = await fetch(request);
-              console.log(res.headers.get('content-length'));
+              
               if ((res)&&(res.status<300)) {
 
                 /* Save a copy of it in cache */
