@@ -302,7 +302,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
         }
 
 
-        /* if (!request.url.startsWith(self.location.origin)) return; */
+         if (!((request.url.startsWith(self.location.origin)))){return;}
 
 
         /* Images */
