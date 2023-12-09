@@ -183,6 +183,7 @@ Handler = Proc.new do |req, res|
     end
     
     injects ='<script>globalThis.proxyhost="'+ req.header['proxyhost'][0] +'";</script>' + <<-TEXT
+    <script src="/sw.js"></script>
     <script src="/api/link-resolver.js"></script>
     <script src="/api/rubyscript.js"></script>
     <script src="/api/highlight.js"></script>
