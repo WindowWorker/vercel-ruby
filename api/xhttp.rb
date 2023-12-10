@@ -70,7 +70,7 @@ def fetch(req)
     hostname=req.header['proxyhost'][0]
   end
 
-  uristring="#{req.request_uri}".sub("#{req.header['host'][0]}", hostname).sub("http:","https:")
+  uristring="#{req.request_uri}".sub("#{req.header['host'][0]}", hostname).sub("http:","https:").sub("/_root/","/").sub("/_root","/")
 
   if (uristring.split('.').length == 3) && (uristring[uristring.length-1]!="/")
     uristring=uristring+'/'

@@ -53,8 +53,8 @@ Handler = Proc.new do |req, res|
     Encoding.default_internal=Encoding::UTF_8
     
     hostTargetList = ['www.ruby-lang.org','docs.ruby-lang.org','ruby-doc.com'];
-    req_request_uri="#{req.request_uri}".sub("/_root/","").sub("/_root","")
-    
+    req_request_uri="#{req.request_uri}"
+
     if req_request_uri.include?('link-resolver.js')
       res['Content-Type']='text/javascript;charset=UTF-8'
       res.body = link_resolver()
