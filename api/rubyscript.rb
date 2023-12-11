@@ -40,14 +40,14 @@ def rubyscript()
     };
 
     globalThis.declareEvaluator=async function(){
-    #{'	'}
+    
       const declarations_length = declarations.length;
     	for(let i = 0;i < declarations_length;i++){try{
-    #{'		'}
+   
     		declarations[i]();
-    #{'		'}
+   
     	}catch(e){await("declareEvaluator");console.log(e);continue;}}
-    #{'    '}
+   
     };
 
 
