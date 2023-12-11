@@ -1,4 +1,4 @@
-def rubyscript
+def rubyscript()
   <<~TEXT
 
     void function rubyscript(){
