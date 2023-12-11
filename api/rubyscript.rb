@@ -1,5 +1,5 @@
 def rubyscript
-  <<~TEXT
+  <<-TEXT
 
     void function rubyscript(){
 
