@@ -177,7 +177,7 @@ TEXT
       body = Zlib.gunzip(body)
     end
     
-    if (!(response.header['content-type'].include?('text')))
+    if (response.header['content-type']&&!(response.header['content-type'].include?('text')))
       begin
         text=body
         text.encode('UTF-8')
