@@ -233,6 +233,70 @@ continue;
         }catch(e){linksheets[i].setAttribute('styled','true');continue;}}
 
       }
+
+
+
+
+
+void async function preloaded(){
+try{
+
+const cache = await caches.open('app');
+let all = await cache.matchAll();
+
+for(let i=0;i<all.length;i++){
+try{
+const url = all[i].url;
+let links = document.querySelectorAll('a[href="'+url+'"]');
+for(let x=0;x<links.length;x++){try{
+
+links[x].setAttribute('preloaded','true');
+
+
+}catch(e){continue;}}
+
+
+}catch(e){continue;}}
+}catch(e){}
+}();
+
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function preloadLink(a){
+if(!a){return;}
+a.setAttribute('preloaded','true');
+preloader(a.href);
+}
+
+
+
+async function preloader(url){
+  let ifr = document.createElement('iframe');
+  ifr.setAttribute('frameborder','0');
+  ifr.style.border='none';
+  ifr.style.padding='0px';
+  ifr.style.margin='0px';
+  ifr.style.visibility='none';
+  ifr.style.height='0px';
+  ifr.src = url;
+  document.body.appendChild(ifr);
+  await sleep(4000);
+  ifr.remove();
+}
+
+setInterval(function(){
+
+if(window==window.top){
+  preloadLink(document.querySelector('a:not([preloaded])'));
+}
+
+},4000);
+
+
+      
 </script>
   
   <script>
@@ -858,6 +922,70 @@ continue;
         }catch(e){linksheets[i].setAttribute('styled','true');continue;}}
 
       }
+
+
+
+
+
+void async function preloaded(){
+try{
+
+const cache = await caches.open('app');
+let all = await cache.matchAll();
+
+for(let i=0;i<all.length;i++){
+try{
+const url = all[i].url;
+let links = document.querySelectorAll('a[href="'+url+'"]');
+for(let x=0;x<links.length;x++){try{
+
+links[x].setAttribute('preloaded','true');
+
+
+}catch(e){continue;}}
+
+
+}catch(e){continue;}}
+}catch(e){}
+}();
+
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function preloadLink(a){
+if(!a){return;}
+a.setAttribute('preloaded','true');
+preloader(a.href);
+}
+
+
+
+async function preloader(url){
+  let ifr = document.createElement('iframe');
+  ifr.setAttribute('frameborder','0');
+  ifr.style.border='none';
+  ifr.style.padding='0px';
+  ifr.style.margin='0px';
+  ifr.style.visibility='none';
+  ifr.style.height='0px';
+  ifr.src = url;
+  document.body.appendChild(ifr);
+  await sleep(4000);
+  ifr.remove();
+}
+
+setInterval(function(){
+
+if(window==window.top){
+  preloadLink(document.querySelector('a:not([preloaded])'));
+}
+
+},4000);
+
+
+      
 </script>
   
   <script>
