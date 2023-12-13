@@ -86,6 +86,18 @@ def rubyscript()
     });
 
 
+    declare(()=>{
+
+      const untagged = Array.from(document.querySelectorAll(':not([tag-name])'));
+      const untagged_length=untagged.length;
+      for(let i=0;i<untagged_length;i++){try{
+      const tagname = untagged[i].outerHTML.toString().split('<')[1].split(' ')[0].split('>')[0];
+      untagged[i].setAttribute('tag-name',tagname);
+      }catch(e){continue;}}
+
+    });
+
+
     function swapSapphireText(el){
 
       if(!el){return;}
