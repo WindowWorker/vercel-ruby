@@ -291,7 +291,7 @@ async function preloader(url){
 setInterval(function(){
 
 if(window==window.top){
-  preloadLink(document.querySelector('a[href^="`+window.location.origin+`"]:not([preloaded])'));
+  preloadLink(document.querySelector('a[href^="'+window.location.origin+'"]:not([preloaded])'));
 }
 
 },4000);
