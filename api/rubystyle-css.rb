@@ -164,7 +164,7 @@ text-shadow:1px 1px 2px white, -1px -1px 2px white, -1px 1px 2px white, 1px -1px
 
 .menu_box>a,[id="actionbar"] a{text-shadow:none !important;} 
 
-.carbonad,[data-attributes*="carbon"]{display:none !important;}
+.default-ad,.carbonad,[data-attributes*="carbon"]{display:none !important;}
 
 [comment="highlight"]{display:none;}
 
