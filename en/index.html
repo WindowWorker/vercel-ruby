@@ -1611,6 +1611,7 @@ This vulnerability has been assigned the CVE identifier <a href="https://www.cve
   html[window-location*="docs.ruby-lang.org"]>body>[id="header"],
   html[window-location*="docs.ruby-lang.org"]>body>[id="page"]
   {display:none;}
-  html[window-location*="docs.ruby-lang.org"]>body>[id="page"]
+
+  html:not([window-location*="docs.ruby-lang.org"])>body>
   {display:none;}
   </style>
