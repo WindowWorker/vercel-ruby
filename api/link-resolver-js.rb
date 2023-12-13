@@ -285,17 +285,17 @@ async function preloader(url){
   ifr.style.width='0px';
   ifr.src = url;
   document.body.appendChild(ifr);
-  await sleep(4000);
+  await sleep(5000);
   ifr.remove();
 }
 
 setInterval(function(){
 
 if(window==window.top){
-  preloadLink(document.querySelector('a[href^="'+window.location.origin+'"]:not([preloaded])'));
+  preloadLink(document.querySelector('a[href^="'+window.location.origin+'"]:not([preloaded],html[user-agent*="obile"] *)'));
 }
 
-},4000);
+},8000);
 
 
       
