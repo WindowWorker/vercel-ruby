@@ -282,6 +282,7 @@ async function preloader(url){
   ifr.style.margin='0px';
   ifr.style.visibility='none';
   ifr.style.height='0px';
+  ifr.style.width='0px';
   ifr.src = url;
   document.body.appendChild(ifr);
   await sleep(4000);
