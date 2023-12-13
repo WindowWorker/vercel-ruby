@@ -98,7 +98,7 @@ Handler = Proc.new do |req, res|
     end
 
     
-    ref = nil
+    ref = ""
     if req['referer']
       ref="#{req['referer']}".encode("ascii", "utf-8", replace: "/")
     end
