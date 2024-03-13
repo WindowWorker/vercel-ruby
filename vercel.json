@@ -1,4 +1,16 @@
 {
+   
+    "functions": {
+      "api/index.rb": {
+        "memory": 128,
+        "maxDuration": 5
+      },
+      "api/*.rb": {
+        "memory": 128,
+        "maxDuration": 5
+      }
+    }
+  ,
   "rewrites": [
     {
       "source": "/(.*)",
