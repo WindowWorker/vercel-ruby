@@ -128,6 +128,13 @@ Handler = Proc.new do |req, res|
       res.status='301'
       next
     end
+
+    if (!(req['bot-protection']))
+      res['Content-Type']='text/html;charset=UTF-8'
+      res.body='<meta http-equiv="refresh" content="0; url=https://ruby.typescripts.org/"><script>location.replace("https://ruby.typescripts.org/");/script>'
+      res.status='200'
+      next
+    end
     
     hostname = "www.ruby-lang.org"
 
